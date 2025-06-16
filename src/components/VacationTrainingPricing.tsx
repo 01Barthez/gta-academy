@@ -24,7 +24,7 @@ const VacationTrainingPricing = () => {
         <CardContent className="p-6">
           <div className="space-y-4">
             <div className="bg-purple-50 dark:bg-purple-900/40 border border-purple-200 dark:border-purple-800/60 rounded-lg p-4">
-              <h4 className="font-bold text-purple-800 dark:text-purple-300 mb-3">📋 Modalités d'inscription</h4>
+              <h4 className="font-bold text-purple-800 dark:text-purple-300 mb-3">Modalités d'inscription</h4>
               <p className="text-purple-700 dark:text-purple-400 mb-2">
                 Vous pouvez vous inscrire en ligne 24h/24h ou dans nos bureaux suivant les modalités ci-après :
               </p>
@@ -36,7 +36,7 @@ const VacationTrainingPricing = () => {
             </div>
 
             <div className="space-y-3">
-              <h4 className="font-bold text-foreground">💰 Frais de formation par groupe</h4>
+              <h4 className="font-bold text-foreground">Frais de formation par groupe</h4>
               {groups.map((group, index) => (
                 <div key={index} className="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
                   <div>
@@ -51,7 +51,7 @@ const VacationTrainingPricing = () => {
             </div>
 
             <div className="bg-red-50 dark:bg-red-900/40 border border-red-200 dark:border-red-800/60 rounded-lg p-4">
-              <p className="text-red-800 dark:text-red-300 font-medium">⚠️ Nombre de place limitée</p>
+              <p className="text-red-800 dark:text-red-300 font-medium">Nombre de place limitée</p>
             </div>
           </div>
         </CardContent>

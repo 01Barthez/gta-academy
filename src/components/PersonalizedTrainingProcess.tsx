@@ -2,9 +2,12 @@
 import React, { useState } from 'react';
 import { MessageSquare, Search, Users, Rocket, CheckCircle } from 'lucide-react';
 import ConsultationModal from '@/components/ConsultationModal';
+import { useNavigate } from 'react-router-dom';
+
 
 const PersonalizedTrainingProcess = () => {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const steps = [
     {
@@ -20,7 +23,7 @@ const PersonalizedTrainingProcess = () => {
       ]
     },
     {
-      step: "02", 
+      step: "02",
       title: "Conception du programme",
       description: "Nos experts créent un programme de formation unique adapté à votre profil",
       icon: Search,
@@ -70,7 +73,10 @@ const PersonalizedTrainingProcess = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section
+      id="trainingprocess"
+      className="py-20"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-foreground">
@@ -85,13 +91,13 @@ const PersonalizedTrainingProcess = () => {
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             const isEven = index % 2 === 0;
-            
+
             return (
               <div key={index} className={`flex flex-col lg:flex-row items-center gap-8 ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                 {/* Contenu */}
                 <div className="flex-1 space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    <div className="w-16 h-16 bg-gradient-to-r from-gta-red to-red-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       {step.step}
                     </div>
                     <div>
@@ -99,11 +105,11 @@ const PersonalizedTrainingProcess = () => {
                       <p className="text-muted-foreground">{step.description}</p>
                     </div>
                   </div>
-                  
+
                   <div className="grid sm:grid-cols-2 gap-3">
                     {step.details.map((detail, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-gta-red rounded-full"></div>
                         <span className="text-sm text-muted-foreground">{detail}</span>
                       </div>
                     ))}
@@ -112,8 +118,8 @@ const PersonalizedTrainingProcess = () => {
 
                 {/* Icône */}
                 <div className="flex-shrink-0">
-                  <div className="w-32 h-32 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl flex items-center justify-center shadow-lg">
-                    <IconComponent className="w-16 h-16 text-orange-600" />
+                  <div className="w-32 h-32 bg-gradient-to-br from-gta-red to-amber-100 rounded-2xl flex items-center justify-center shadow-lg">
+                    <IconComponent className="w-16 h-16 text-gta-red" />
                   </div>
                 </div>
               </div>
@@ -123,28 +129,22 @@ const PersonalizedTrainingProcess = () => {
 
         {/* Call-to-action */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-200">
+          <div className="bg-gradient-to-r from-gta-red to-amber-50 rounded-2xl p-8 border border-gta-red">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Prêt à commencer votre formation personnalisée ?
             </h3>
             <p className="text-muted-foreground mb-6">
               Contactez-nous dès maintenant pour une consultation gratuite et démarrez votre parcours sur mesure
             </p>
-            <button 
-              onClick={() => setIsConsultationModalOpen(true)}
-              className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            <button
+              onClick={() => navigate("/training/personalized/quote")}
+              className="bg-gradient-to-r from-gta-red to-red-500 hover:from-gta-red hover:to-amber-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Commencer maintenant
             </button>
           </div>
         </div>
       </div>
-
-      {/* Modale de consultation */}
-      <ConsultationModal
-        isOpen={isConsultationModalOpen}
-        onClose={() => setIsConsultationModalOpen(false)}
-      />
     </section>
   );
 };

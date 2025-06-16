@@ -2,6 +2,7 @@
 import React from 'react';
 import { Briefcase, Building2, Users, Target, Sparkles, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const EnterpriseTrainingHero = () => {
   return (
@@ -13,28 +14,16 @@ const EnterpriseTrainingHero = () => {
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gta-red/10 dark:bg-gta-red/20 rounded-full animate-pulse delay-500"></div>
       </div>
 
-      {/* Floating business icons */}
-      <div className="absolute top-12 left-8 text-gta-red/20 dark:text-gta-red-light/30 animate-float">
-        <Building2 className="w-10 h-10" />
-      </div>
-      <div className="absolute top-20 right-12 text-gta-red-light/20 dark:text-gta-red-light/30 animate-float delay-300">
-        <TrendingUp className="w-8 h-8" />
-      </div>
-      <div className="absolute bottom-16 right-8 text-gta-red/20 dark:text-gta-red/30 animate-float delay-500">
-        <Users className="w-6 h-6" />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Enhanced badge */}
-          <div className="inline-flex items-center space-x-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gta-red dark:text-gta-red-light px-6 py-3 rounded-full mb-6 shadow-lg border border-gta-red/20 dark:border-gta-red-light/30">
-            <Briefcase className="w-6 h-6" />
+          <div className="inline-flex items-center space-x-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gta-red dark:text-gta-red-light px-3 py-1 rounded-full mb-6 shadow-lg border border-gta-red/20 dark:border-gta-red-light/30">
             <span className="font-semibold">Solutions Entreprise</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-gta-red dark:text-gta-red-light">Formations</span>
+            <span className="text-foreground dark:text-gta-red-light">Formations</span>
             <span className="block bg-gradient-to-r from-gta-red-light to-gta-red dark:from-gta-red-light dark:to-gta-red bg-clip-text text-transparent">
               Entreprise
             </span>
@@ -42,28 +31,30 @@ const EnterpriseTrainingHero = () => {
 
           {/* Enhanced description */}
           <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
-            Développez les <span className="text-gta-red dark:text-gta-red-light font-semibold">compétences de vos équipes</span> avec nos 
+            Développez les <span className="text-gta-red dark:text-gta-red-light font-semibold">compétences de vos équipes</span> avec nos
             <span className="text-gta-red-light dark:text-gta-red-light font-semibold"> formations certifiantes sur mesure</span>
           </p>
 
           {/* Enhanced call-to-action buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button 
-              size="lg" 
-              className="bg-gta-red hover:bg-gta-red-light dark:bg-gta-red-light dark:hover:bg-gta-red text-white px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Target className="mr-2 w-5 h-5" />
-              Demander un devis
-            </Button>
-            
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-gta-red dark:border-gta-red-light text-gta-red dark:text-gta-red-light hover:bg-gta-red dark:hover:bg-gta-red-light hover:text-white px-8 py-3 font-semibold transition-all duration-300"
-            >
-              <Sparkles className="mr-2 w-5 h-5" />
-              Contactez-nous
-            </Button>
+            <Link to="/training/enterprise/quote">
+              <Button
+                size="lg"
+                className="bg-gta-red hover:bg-gta-red-light dark:bg-gta-red-light dark:hover:bg-gta-red text-white px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Demander un devis
+              </Button>
+            </Link>
+
+            <Link to="/contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-gta-red dark:border-gta-red-light text-gta-red dark:text-gta-red-light hover:bg-gta-red dark:hover:bg-gta-red-light hover:text-white px-8 py-3 font-semibold transition-all duration-300"
+              >
+                Contactez-nous
+              </Button>
+            </Link>
           </div>
 
           {/* Quick enterprise stats */}

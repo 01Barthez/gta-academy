@@ -10,11 +10,6 @@ export const usePhoneCall = () => {
       // Sur mobile, ouvrir l'application téléphone
       window.location.href = `tel:${phoneNumber}`;
     } else {
-      // Sur desktop, afficher les informations de contact
-      toast({
-        title: "Contactez-nous directement",
-        description: `Appelez-nous au ${phoneNumber} ou utilisez Skype/WhatsApp`,
-      });
       
       // Copier le numéro dans le presse-papiers si possible
       if (navigator.clipboard) {

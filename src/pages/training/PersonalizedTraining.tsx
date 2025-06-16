@@ -15,7 +15,7 @@ const PersonalizedTrainingPage = () => {
       <PersonalizedTrainingHero />
       <PersonalizedTrainingBenefits />
       <PersonalizedTrainingProcess />
-      <PersonalizedTrainingTestimonials />
+      {/* <PersonalizedTrainingTestimonials /> */}
       <PersonalizedTrainingCTA />
       <Footer />
     </div>

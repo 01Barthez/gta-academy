@@ -79,7 +79,7 @@ const PersonalizedTrainingBenefits = () => {
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-gta-red to-gta-red-light dark:from-gta-red-light dark:to-gta-red text-white rounded-2xl p-8 max-w-4xl mx-auto shadow-xl">
             <h3 className="text-2xl font-bold mb-4">
-              Rejoignez plus de 500 professionnels qui ont choisi l'excellence
+              Rejoignez le leader dans l'enseignement des technologies de demain
             </h3>
             <p className="text-red-100 dark:text-red-50 text-lg">
               Nos formations personnalisées ont un taux de satisfaction de 98% et un taux de réussite professionnelle de 95%

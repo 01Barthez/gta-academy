@@ -14,7 +14,7 @@ const VacationTrainingPayment = () => {
             <span>MODE DE PAIEMENTS</span>
           </CardTitle>
         </CardHeader>
-        <CardContent className="p-6">
+        <CardContent className="p-3 md:p-6">
           <div className="space-y-6">
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -26,7 +26,7 @@ const VacationTrainingPayment = () => {
                   <p className="text-gray-600">10005-00038-08943631001-89</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">2</span>
@@ -37,7 +37,7 @@ const VacationTrainingPayment = () => {
                   <p className="text-gray-600">De 11h à 16h</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">3</span>
@@ -62,15 +62,12 @@ const VacationTrainingPayment = () => {
                   <Mail className="w-5 h-5" />
                   <span>Email : academy@gta-it.com</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Globe className="w-5 h-5" />
-                  <span>Site web : academy.gta-it (pour inscription en ligne)</span>
-                </div>
               </div>
-              
-              <Button 
+
+              <Button
                 className="w-full mt-6 bg-white text-gta-red hover:bg-gray-100"
                 size="lg"
+                onClick={() => window.location.href = `/registration`}
               >
                 S'inscrire maintenant
               </Button>

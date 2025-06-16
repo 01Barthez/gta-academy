@@ -36,7 +36,7 @@ const VacationTrainingSchedule = () => {
               </div>
             ))}
             <div className="bg-blue-50 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800/60 rounded-lg p-4 mt-4">
-              <p className="text-blue-800 dark:text-blue-300 font-medium">📅 Du lundi à Vendredi</p>
+              <p className="text-blue-800 dark:text-blue-300 font-medium">Du lundi à Vendredi</p>
               <p className="text-sm text-blue-600 dark:text-blue-500 mt-1">
                 Groupe 4 : 08h - 14h 19 ans et plus<br />
                 Uniquement les samedis (formation accélérée)

@@ -699,7 +699,7 @@ const RegistrationPage = () => {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="text-base font-medium">
-                                📄 Photocopie de carte nationale d'identité ou carte d'élève/étudiant
+                                Photocopie de carte nationale d'identité ou carte d'élève/étudiant
                               </FormLabel>
                               <FormControl>
                                 <Input 
@@ -725,7 +725,7 @@ const RegistrationPage = () => {
                             <FormItem>
                               <FormLabel className="flex items-center gap-2 text-base font-medium">
                                 <Camera className="w-4 h-4 text-indigo-600" />
-                                📸 Photo 4x4 (facultatif)
+                                Photo 4x4 (facultatif)
                               </FormLabel>
                               <FormControl>
                                 <Input 

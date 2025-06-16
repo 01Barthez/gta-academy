@@ -115,7 +115,7 @@ const VacationTrainingModules = () => {
           return (
             <Card key={module.number} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 group">
               <CardHeader className={`bg-gradient-to-r ${getColorClasses(module.color)} text-white rounded-t-lg`}>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-col sm:flex-row gap-2">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-white text-gray-800 rounded-full flex items-center justify-center font-bold text-xl">
                       {module.number}
@@ -127,12 +127,13 @@ const VacationTrainingModules = () => {
                       </CardDescription>
                     </div>
                   </div>
+
                   <Button
-                    onClick={() => window.location.href = module.route}
+                    onClick={() => window.location.href = `/registration?module=${module.number}`}
                     size="sm"
                     className="bg-white/20 hover:bg-white/30 text-white border-white/30"
                   >
-                    Voir détails
+                    S'inscrire maintenant
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </div>
@@ -161,13 +162,13 @@ const VacationTrainingModules = () => {
 
                   <div>
                     <h4 className="font-semibold text-foreground mb-3 flex items-center">
-                      <Target className="w-5 h-5 mr-2 text-green-600 dark:text-green-500" />
+                      <Target className="w-5 h-5 mr-2 text-red-600 dark:text-red-500" />
                       Objectifs principaux
                     </h4>
                     <ul className="space-y-2">
                       {module.objectives.map((objective, idx) => (
                         <li key={idx} className="flex items-start space-x-2 text-sm">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-muted-foreground">{objective}</span>
                         </li>
                       ))}

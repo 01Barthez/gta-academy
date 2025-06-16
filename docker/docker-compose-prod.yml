@@ -1,0 +1,28 @@
+services:
+  gtaacademy:
+    build:
+      image: 01barthez/gtaacademy:latest
+      container_name: app-gtaacademy_frontend
+    ports:
+      - "8999:80"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  watchtower:
+    container_name: watchtower-gtaacademy_frontend
+    image: containrrr/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true # supprime les anciennes images
+      - WATCHTOWER_POLL_INTERVAL=300 # vérifie toutes les 5 minutes
+      - WATCHTOWER_LABEL_ENABLE=true # n’update que les conteneurs avec le label
+      # - WATCHTOWER_USERNAME=barthezkenwou
+      # - WATCHTOWER_PASSWORD=ton_token_securisé
+    restart: unless-stopped

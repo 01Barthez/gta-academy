@@ -1,0 +1,14 @@
+services:
+  gtaacademy:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: app-gtaacademy_frontend
+    ports:
+      - "8999:80"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

@@ -1,0 +1,42 @@
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://academy.gta-it.com/sitemap.xml
+
+# Block crawling of admin areas
+Disallow: /dashboard/
+Disallow: /admin/
+
+# Block crawling of API endpoints
+Disallow: /api/
+
+# Block crawling of internal files
+Disallow: /*.json$
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Allow crawling of images
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+
+# Crawl delay for being respectful
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /

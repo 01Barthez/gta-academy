@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Erreur serveur - GTA Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <style>
+      html, body {
+        height: 100%; margin: 0; padding: 0;
+        background: linear-gradient(145deg, #DC143C 0%, #32327C 80%);
+        color: #fff; font-family: 'Inter', sans-serif;
+      }
+      .center {
+        min-height: 100vh; display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        gap: 2rem;
+      }
+      .emoji {
+        font-size: 6rem; margin-bottom: 0.5em; filter: drop-shadow(0 4px 12px #0004);
+        animation: pulse50 2s infinite alternate;
+      }
+      @keyframes pulse50 {
+        0% { transform: scale(1);}
+        100% { transform: scale(1.08);}
+      }
+      a {
+        color: #fff; background: #DC143C; text-decoration: none; padding: 0.6em 1.6em;
+        border-radius: 99px; font-weight: 600; letter-spacing: .05em;
+        transition: background 0.2s;
+      }
+      a:hover {background: #FF6B6B;}
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="emoji">🚧</div>
+      <h1 style="font-size:3rem; margin:0;">Erreur serveur 50x</h1>
+      <p>Oups ! Un problème technique temporaire empêche d'accéder à cette page.<br>
+        Nos équipes sont au courant et s’occupent du problème.</p>
+      <a href="/">Retour à l'accueil</a>
+    </div>
+  </body>
+</html>

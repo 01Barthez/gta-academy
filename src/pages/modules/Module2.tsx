@@ -87,7 +87,7 @@ const Module2Page = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/40"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-white/25 text-white border-white/40 hover:bg-white/35 backdrop-blur-sm">Formation Vacances 2025</Badge>
+            <Badge className="mb-4 bg-gta-red/25 text-gta-red border-gta-red/40 hover:bg-gta-red/35 backdrop-blur-sm">Formation Vacances 2025</Badge>
             <h1 className="text-3xl lg:text-5xl font-bold mb-6 drop-shadow-lg">
               Module 2 : Initiation à l'Intelligence Artificielle & Word 2013
             </h1>
@@ -199,7 +199,7 @@ const Module2Page = () => {
             <Card className="border border-border dark:bg-card">
               <CardContent className="p-0">
                 <img 
-                  src="https://images.unsplash.com/photo-1485833077593-4278bba3f11f?auto=format&fit=crop&w=400&h=300&q=80"
+                  src="https://i0.wp.com/aboukam.net/wp-content/uploads/2016/12/HourOfCode-Une-heure-de-code-pour-apprendre-la-programmation-informatique.jpg?resize=660%2C330&ssl=1"
                   alt="Étudiant utilisant un ordinateur"
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
@@ -237,24 +237,6 @@ const Module2Page = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-gta-red to-gta-red-dark text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Prêt à explorer l'IA et Word ?</h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Donnez à votre enfant les clés pour comprendre l'avenir technologique et maîtriser les outils bureautiques
-          </p>
-          <div className="space-x-4">
-            <Button size="lg" className="bg-white text-gta-red hover:bg-white/90">
-              S'inscrire maintenant
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gta-red">
-              Plus d'informations
-            </Button>
           </div>
         </div>
       </section>

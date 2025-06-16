@@ -30,15 +30,13 @@ const HolidaysTrainingPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Refined badge */}
-            <div className="inline-flex items-center space-x-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gta-red dark:text-gta-red-light px-6 py-3 rounded-full mb-6 shadow-lg border border-gta-red/20 dark:border-gta-red-light/30">
-              <Calendar className="w-5 h-5" />
+            <div className="inline-flex items-center space-x-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gta-red dark:text-gta-red-light px-4 py-1 rounded-full mb-6 shadow-lg border border-gta-red/20 dark:border-gta-red-light/30">
               <span className="font-semibold">Vacances Productives</span>
-              <Sparkles className="w-4 h-4" />
             </div>
 
             {/* Main heading */}
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-gta-red dark:text-gta-red-light">Vacances</span>
+              <span className="text-foreground dark:text-foreground">Vacances</span>
               <span className="block bg-gradient-to-r from-gta-red-light to-gta-red dark:from-gta-red-light dark:to-gta-red bg-clip-text text-transparent">
                 & Compétences
               </span>
@@ -58,7 +56,6 @@ const HolidaysTrainingPage = () => {
                 className="bg-gta-red hover:bg-gta-red-light dark:bg-gta-red-light dark:hover:bg-gta-red text-white px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() => document.getElementById('formation')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <Sun className="mr-2 w-5 h-5" />
                 Découvrir les modules
               </Button>
               
@@ -66,9 +63,8 @@ const HolidaysTrainingPage = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-gta-red dark:border-gta-red-light text-gta-red dark:text-gta-red-light hover:bg-gta-red dark:hover:bg-gta-red-light hover:text-white px-8 py-3 font-semibold transition-all duration-300"
-                onClick={() => document.getElementById('formation')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('planning')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <Calendar className="mr-2 w-5 h-5" />
                 Voir le planning
               </Button>
             </div>

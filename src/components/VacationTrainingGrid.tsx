@@ -8,7 +8,7 @@ import VacationTrainingPayment from '@/components/VacationTrainingPayment';
 const VacationTrainingGrid = () => {
   return (
     <>
-      <div className="grid lg:grid-cols-2 gap-12 mb-16">
+      <div id="planning" className="grid lg:grid-cols-2 gap-12 mb-16">
         {/* Sessions */}
         <VacationTrainingSessions />
 

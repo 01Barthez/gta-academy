@@ -85,7 +85,7 @@ const Module3Page = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/40"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-white/25 text-white border-white/40 hover:bg-white/35 backdrop-blur-sm">Formation Vacances 2025</Badge>
+            <Badge className="mb-4 bg-gta-red/25 text-gta-red border-gta-red/40 hover:bg-gta-red/35 backdrop-blur-sm">Formation Vacances 2025</Badge>
             <h1 className="text-3xl lg:text-5xl font-bold mb-6 drop-shadow-lg">
               Module 3 : Initiation à l'utilisation d'Excel 2013
             </h1>
@@ -150,7 +150,7 @@ const Module3Page = () => {
               </div>
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&h=400&q=80"
+                  src="https://assets.kompasiana.com/items/album/2021/06/30/2-60dc83571525101b9961b1a2.jpg?t=o&v=300"
                   alt="Écran d'ordinateur montrant une feuille Excel"
                   className="rounded-lg shadow-lg"
                 />
@@ -254,24 +254,6 @@ const Module3Page = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-gta-red to-gta-red-dark text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Prêt à maîtriser Excel ?</h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Donnez à votre enfant un avantage considérable avec la maîtrise d'Excel, compétence essentielle dans le monde professionnel
-          </p>
-          <div className="space-x-4">
-            <Button size="lg" className="bg-white text-gta-red hover:bg-white/90">
-              S'inscrire maintenant
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gta-red">
-              Plus d'informations
-            </Button>
           </div>
         </div>
       </section>

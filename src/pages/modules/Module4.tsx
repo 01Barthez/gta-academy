@@ -71,13 +71,13 @@ const Module4Page = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-4 border-b dark:border-border">
         <div className="container mx-auto px-4">
           <div className="flex items-center space-x-2 text-sm">
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               size="sm"
               onClick={() => window.history.back()}
               className="text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -96,14 +96,14 @@ const Module4Page = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/40"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-white/25 text-white border-white/40 hover:bg-white/35 backdrop-blur-sm">Formation Vacances 2025</Badge>
+            <Badge className="mb-4 bg-gta-red/25 text-gta-red border-gta-red/40 hover:bg-white/35 backdrop-blur-sm">Formation Vacances 2025</Badge>
             <h1 className="text-3xl lg:text-5xl font-bold mb-6 drop-shadow-lg">
               Module 4 : Initiation à Canva / PowerPoint 2013
             </h1>
             <p className="text-xl text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-sm">
               Créez des présentations et supports visuels professionnels avec les meilleurs outils du marché
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               <div className="text-center bg-white/15 rounded-lg p-6 backdrop-blur-sm border border-white/20 shadow-lg">
                 <Clock className="w-8 h-8 mx-auto mb-2" />
@@ -301,7 +301,7 @@ const Module4Page = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border border-border overflow-hidden dark:bg-card">
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&h=250&q=80"
                 alt="Exemple de présentation créative"
                 className="w-full h-48 object-cover"
@@ -315,24 +315,10 @@ const Module4Page = () => {
             </Card>
 
             <Card className="border border-border overflow-hidden dark:bg-card">
-              <img 
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=400&h=250&q=80"
+              <img
+                src="/public/images/affiche-flyer.jpeg"
                 alt="Jeune créateur utilisant Canva"
-                className="w-full h-48 object-cover"
-              />
-              <CardContent className="p-4">
-                <h3 className="font-bold mb-2 text-foreground">Affiches impactantes</h3>
-                <p className="text-sm text-muted-foreground">
-                  Visuels attractifs pour tous types d'événements
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-border overflow-hidden dark:bg-card">
-              <img 
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&h=250&q=80"
-                alt="Équipe travaillant sur des présentations"
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover object-top"
               />
               <CardContent className="p-4">
                 <h3 className="font-bold mb-2 text-foreground">Travail collaboratif</h3>
@@ -341,29 +327,25 @@ const Module4Page = () => {
                 </p>
               </CardContent>
             </Card>
+
+            <Card className="border border-border overflow-hidden dark:bg-card">
+              <img
+                src="/public/images/affiche-facebook.jpg"
+                alt="Équipe travaillant sur des présentations"
+                className="w-full h-48 object-contain bg-red-200"
+              />
+              <CardContent className="p-4">
+                <h3 className="font-bold mb-2 text-foreground">Affiches impactantes</h3>
+                <p className="text-sm text-muted-foreground">
+                  Visuels attractifs pour tous types d'événements
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-gta-red to-gta-red-dark text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Prêt à créer des présentations époustouflantes ?</h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Transformez vos idées en créations visuelles professionnelles avec Canva et PowerPoint
-          </p>
-          <div className="space-x-4">
-            <Button size="lg" className="bg-white text-gta-red hover:bg-white/90">
-              S'inscrire maintenant
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gta-red">
-              Plus d'informations
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <ModuleRegistrationCTA 
+      <ModuleRegistrationCTA
         moduleNumber={4}
         moduleTitle="Module 4 : Initiation à Canva / PowerPoint 2013"
       />

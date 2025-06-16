@@ -1,12 +1,10 @@
 
 import React from 'react';
 import HeroBadge from '@/components/HeroBadge';
-import HeroBackground from '@/components/HeroBackground';
 
 const HeroVariant4 = ({ onRegisterClick }: { onRegisterClick: () => void }) => {
   return (
     <div className="relative bg-gradient-to-br from-orange-900 via-red-900 to-slate-800 text-white py-24 lg:py-32 overflow-hidden min-h-screen flex items-center">
-      <HeroBackground />
       <div className="container mx-auto px-4 relative z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <HeroBadge />

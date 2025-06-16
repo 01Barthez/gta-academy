@@ -13,17 +13,6 @@ const LoadingPage = () => {
         <div className="absolute bottom-20 left-1/3 w-20 h-20 bg-gta-red-light/10 dark:bg-gta-red-light/20 rounded-full animate-pulse delay-700"></div>
       </div>
 
-      {/* Floating icons with GTA theme colors */}
-      <div className="absolute top-16 left-16 text-gta-red/30 dark:text-gta-red-light/40 animate-float">
-        <Code className="w-8 h-8" />
-      </div>
-      <div className="absolute bottom-24 right-20 text-gta-red-light/30 dark:text-gta-red-light/40 animate-float delay-300">
-        <Brain className="w-6 h-6" />
-      </div>
-      <div className="absolute top-1/3 right-16 text-gta-red/30 dark:text-gta-red/40 animate-float delay-500">
-        <BookOpen className="w-7 h-7" />
-      </div>
-
       {/* Main loading content */}
       <div className="text-center z-10 px-4">
         {/* Logo/Brand area with GTA colors */}
@@ -62,19 +51,19 @@ const LoadingPage = () => {
             <div className="w-12 h-12 bg-gta-red/10 dark:bg-gta-red/20 rounded-lg flex items-center justify-center mx-auto mb-2 border border-gta-red/20">
               <Code className="w-6 h-6 text-gta-red" />
             </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">Formations Tech</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">Formations Certifiantes</p>
           </div>
           <div className="text-center animate-fade-in delay-500">
             <div className="w-12 h-12 bg-gta-red-light/10 dark:bg-gta-red-light/20 rounded-lg flex items-center justify-center mx-auto mb-2 border border-gta-red-light/20">
               <Brain className="w-6 h-6 text-gta-red-light" />
             </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">Intelligence Artificielle</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">Formations Vacances</p>
           </div>
           <div className="text-center animate-fade-in delay-700">
             <div className="w-12 h-12 bg-gta-red/10 dark:bg-gta-red/20 rounded-lg flex items-center justify-center mx-auto mb-2 border border-gta-red/20">
               <BookOpen className="w-6 h-6 text-gta-red" />
             </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">Apprentissage</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">Formations Entreprise</p>
           </div>
         </div>
       </div>

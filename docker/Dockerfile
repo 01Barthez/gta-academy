@@ -22,6 +22,9 @@ FROM nginx:1.27.5-alpine3.21 AS production
 # Copier les fichiers construits depuis le build précédent
 COPY --from=builder /app/dist /usr/share/nginx/html
 
+# Ajouter le fichier nginx.conf personnalisé
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Exposer les ports nécessaires (80 par défaut)
 EXPOSE 80
 

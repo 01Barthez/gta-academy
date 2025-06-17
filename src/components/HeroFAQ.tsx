@@ -44,7 +44,7 @@ const HeroFAQ: React.FC = () => {
                     {faqs.map((faq, index) => (
                         <div key={index} className="bg-red-800/50 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                             <h3 className="text-xl font-semibold mb-2">{faq.question}</h3>
-                            <p className="text-red-200">{faq.answer}</p>
+                            <p className="text-white/85">{faq.answer}</p>
                         </div>
                     ))}
                 </div>

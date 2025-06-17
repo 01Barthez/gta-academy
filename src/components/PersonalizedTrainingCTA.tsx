@@ -81,7 +81,7 @@ const PersonalizedTrainingCTA = () => {
               <div className="relative border-2 border-gta-red rounded-md overflow-hidden">
                 <div className="absolute inset-0 w-full h-full bg-black/30"></div>
                 <img
-                  src="/public/images/team-happy.jpg"
+                  src="/images/team-happy.jpg"
                   alt="teamm GTA"
                   loading='lazy'
                 />

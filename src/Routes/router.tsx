@@ -33,47 +33,57 @@ const FAQPage = lazy(() => import("@/pages/FAQ"));
 const CourseDetailPage = lazy(() => import("@/pages/CourseDetail"));
 const DashboardPage = lazy(() => import("@/pages/Dashboard"));
 
-const Router = () => (
-  <>
-    <ScrollToTop />
-    <SuspenseWrapper fallback="page">
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/training" element={<TrainingPage />} />
-        <Route path="/training/certified" element={<CertifiedTrainingPage />} />
-        <Route path="/training/certified/:id" element={<CertifiedTrainingDetailPage />} />
-        <Route path="/training/certified/:id/registration" element={<CertifiedRegistrationPage />} />
-        <Route path="/training/holidays" element={<HolidaysTrainingPage />} />
-        <Route path="/training/enterprise" element={<EnterpriseTrainingPage />} />
-        <Route path="/training/enterprise/:id" element={<EnterpriseTrainingDetailPage />} />
-        <Route path="/training/enterprise/quote" element={<EnterpriseQuotePage />} />
-        <Route path="/training/personalized" element={<PersonalizedTrainingPage />} />
-        <Route path="/training/personalized/quote" element={<PersonalizedQuotePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/course/:courseId" element={<CourseDetailPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/registration" element={<RegistrationPage />} />
-        <Route path="/training/holidays/modules/module1" element={<Module1Page />} />
-        <Route path="/training/holidays/modules/module2" element={<Module2Page />} />
-        <Route path="/training/holidays/modules/module3" element={<Module3Page />} />
-        <Route path="/training/holidays/modules/module4" element={<Module4Page />} />
-        {/* Legal pages */}
-        <Route path="/legal" element={<LegalPage />} />
-        <Route path="/privacy" element={<PrivacyPage />} />
-        <Route path="/sitemap" element={<SitemapPage />} />
-        <Route path="/faq" element={<FAQPage />} />
-        {/* Back compat old routes */}
-        <Route path="/modules/module1" element={<Module1Page />} />
-        <Route path="/modules/module2" element={<Module2Page />} />
-        <Route path="/modules/module3" element={<Module3Page />} />
-        <Route path="/modules/module4" element={<Module4Page />} />
-        {/* Catch all */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </SuspenseWrapper>
-    <BackToTopButton />
-  </>
-);
+const Router = () => {
+  return (
+    <>
+      <SuspenseWrapper fallback="page">
+        <ScrollToTop />
+        <Routes>
+          {/* Navigation routes */}
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/training" element={<TrainingPage />} />
+
+          {/* Certified training routes */}
+          <Route path="/training/certified" element={<CertifiedTrainingPage />} />
+          <Route path="/training/certified/:id" element={<CertifiedTrainingDetailPage />} />
+          <Route path="/training/certified/:id/registration" element={<CertifiedRegistrationPage />} />
+
+          {/* enterprise training routes */}
+          <Route path="/training/enterprise" element={<EnterpriseTrainingPage />} />
+          <Route path="/training/enterprise/:id" element={<EnterpriseTrainingDetailPage />} />
+          <Route path="/training/enterprise/quote" element={<EnterpriseQuotePage />} />
+
+          {/* personnalized training routes */}
+          <Route path="/training/personalized" element={<PersonalizedTrainingPage />} />
+          <Route path="/training/personalized/quote" element={<PersonalizedQuotePage />} />
+
+          {/* Holliday trainning routes */}
+          <Route path="/training/holidays" element={<HolidaysTrainingPage />} />
+          <Route path="/training/holidays/modules/module1" element={<Module1Page />} />
+          <Route path="/training/holidays/modules/module2" element={<Module2Page />} />
+          <Route path="/training/holidays/modules/module3" element={<Module3Page />} />
+          <Route path="/training/holidays/modules/module4" element={<Module4Page />} />
+          <Route path="/registration" element={<RegistrationPage />} />
+
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/course/:courseId" element={<CourseDetailPage />} />
+
+
+          {/* Legal pages */}
+          <Route path="/legal" element={<LegalPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+
+          {/* Catch all */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </SuspenseWrapper>
+      <BackToTopButton />
+    </>
+  );
+};
 
 export default Router;

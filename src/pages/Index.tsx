@@ -6,6 +6,7 @@ import About from '@/components/About';
 import Programs from '@/components/Programs';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import HeroFAQ from '@/components/HeroFAQ';
 
 console.log('Index component is loading...');
 
@@ -18,6 +19,7 @@ const Index: React.FC = () => {
       <HeroCarousel />
       <About />
       <Programs />
+      <HeroFAQ />
       <Contact />
       <Footer />
     </div>

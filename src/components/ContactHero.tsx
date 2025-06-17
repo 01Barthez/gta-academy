@@ -2,8 +2,16 @@
 import React from 'react';
 import { MessageCircle, Phone, Send, Headphones, Heart, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { usePhoneCall } from '@/hooks/usePhoneCall';
 
 const ContactHero = () => {
+  const { makeCall } = usePhoneCall();
+
+  const handlePhoneCall = () => {
+    makeCall("+237690419336");
+  };
+
+
   return (
     <section className="relative bg-gradient-to-br from-gta-red/5 via-white to-gta-red/10 dark:from-gray-900 dark:via-gray-800 dark:to-gta-red/20 text-foreground py-10 lg:py-16 overflow-hidden animate-fade-in">
       {/* Subtle background elements with GTA theme colors */}
@@ -40,6 +48,8 @@ const ContactHero = () => {
             <Button
               size="lg"
               className="bg-gta-red hover:bg-gta-red-dark dark:bg-gta-red-light dark:hover:bg-gta-red text-white px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => document.getElementById('form-writting')?.scrollIntoView({ behavior: 'smooth' })}
+
             >
               Nous écrire
             </Button>
@@ -48,6 +58,7 @@ const ContactHero = () => {
               size="lg"
               variant="outline"
               className="border-2 border-gta-red dark:border-gta-red-light text-gta-red dark:text-gta-red-light hover:bg-gta-red dark:hover:bg-gta-red-light hover:text-white px-8 py-3 font-semibold transition-all duration-300"
+              onClick={handlePhoneCall}
             >
               Nous appeler
             </Button>

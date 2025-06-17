@@ -5,7 +5,10 @@ import { Button } from '@/components/ui/button';
 
 const ContactForm = () => {
   return (
-    <div className="bg-card p-8 rounded-xl shadow-lg border w-full">
+    <div
+      id="form-writting"
+      className="bg-card p-8 rounded-xl shadow-lg border w-full"
+    >
       <h2 className="text-2xl font-bold mb-6 text-foreground">Envoyez-nous un message</h2>
 
       <form className="space-y-6">

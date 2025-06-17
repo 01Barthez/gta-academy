@@ -4,7 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 export const usePhoneCall = () => {
   const { toast } = useToast();
 
-  const makeCall = (phoneNumber: string = "+225 XX XX XX XX") => {
+  const makeCall = (phoneNumber: string = "+237690419336") => {
     // Vérifier si le dispositif supporte les appels téléphoniques
     if (navigator.userAgent.match(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
       // Sur mobile, ouvrir l'application téléphone
@@ -27,7 +27,7 @@ export const usePhoneCall = () => {
     }
   };
 
-  const openWhatsApp = (phoneNumber: string = "+225XXXXXXXX", message: string = "Bonjour, je souhaite en savoir plus sur vos formations personnalisées.") => {
+  const openWhatsApp = (phoneNumber: string = "+237690419336", message: string = "Bonjour, je souhaite en savoir plus sur vos formations personnalisées.") => {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');

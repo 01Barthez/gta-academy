@@ -1,17 +1,10 @@
-import { AiOutlineWhatsApp } from "react-icons/ai"; 
+import { AiOutlineWhatsApp } from "react-icons/ai";
 
 import React from 'react';
 import { Phone, Mail, MapPin, Globe, Facebook, Linkedin, MessageCircle, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const services = [
-    "Formations Certifiantes",
-    "Formations Vacances", 
-    "Formations Entreprise",
-    "Formations Personnalisées",
-  ];
-
   const quickLinks = [
     { name: "Accueil", href: "/" },
     { name: "À propos", href: "/about" },
@@ -37,7 +30,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-gray-900 via-red-950 to-black relative overflow-hidden">
       {/* Gradient overlay for extra depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-red-950/30 to-transparent"></div>
-      
+
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-red-600/20 via-transparent to-red-800/20"></div>
 
@@ -47,7 +40,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <img 
+              <img
                 src="/images/logo.png"
                 alt="GTA Logo"
                 className="h-12 w-auto drop-shadow-lg"
@@ -63,29 +56,29 @@ const Footer = () => {
             </p>
             {/* Social Links */}
             <div className="flex space-x-4">
-              <Link 
-                to="https://www.facebook.com/academyGTA" 
+              <Link
+                to="https://www.facebook.com/academyGTA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-br from-red-800 to-red-900 hover:from-blue-600 hover:to-blue-700 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 <Facebook className="w-5 h-5 text-white" />
               </Link>
-              <Link 
-                to="https://www.linkedin.com/company/gta-it" 
+              <Link
+                to="https://www.linkedin.com/company/gta-it"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-br from-red-800 to-red-900 hover:from-blue-700 hover:to-blue-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 <Linkedin className="w-5 h-5 text-white" />
               </Link>
-              <Link 
-                to="https://wa.me/237690419336" 
+              <Link
+                to="https://wa.me/237690419336"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-br from-red-800 to-red-900 hover:from-green-600 hover:to-green-700 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
-                <AiOutlineWhatsApp className="w-5 h-5 text-white"/>
+                <AiOutlineWhatsApp className="w-5 h-5 text-white" />
               </Link>
             </div>
           </div>
@@ -94,16 +87,42 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-red-300 mb-6 drop-shadow-md">Nos Formations</h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <Link 
-                    to="/training" 
-                    className="text-gray-200/90 hover:text-red-400 transition-colors duration-300 hover:drop-shadow-md"
-                  >
-                    {service}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/training/certified"
+                  className="text-gray-200/90 hover:text-red-400 transition-colors duration-300 hover:drop-shadow-md"
+                >
+                  Formations Certifiantes
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/training/holidays"
+                  className="text-gray-200/90 hover:text-red-400 transition-colors duration-300 hover:drop-shadow-md"
+                >
+                  Formations Vacances
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/training/enterprise"
+                  className="text-gray-200/90 hover:text-red-400 transition-colors duration-300 hover:drop-shadow-md"
+                >
+                  Formations Entreprise
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/training/personalized"
+                  className="text-gray-200/90 hover:text-red-400 transition-colors duration-300 hover:drop-shadow-md"
+                >
+                  Formations Personnalisées
+                </Link>
+              </li>
+
             </ul>
           </div>
 
@@ -113,7 +132,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link 
+                  <Link
                     to={link.href}
                     className="text-gray-200/90 hover:text-red-400 transition-colors duration-300 hover:drop-shadow-md"
                   >
@@ -135,7 +154,7 @@ const Footer = () => {
                   Nkolfoulou base SATOM
                 </p>
               </div>
-              
+
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-red-400 flex-shrink-0 drop-shadow-md" />
                 <Link
@@ -145,16 +164,16 @@ const Footer = () => {
                   +237 690 419 336
                 </Link>
               </div>
-              
+
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-red-400 flex-shrink-0 drop-shadow-md" />
-                <Link 
+                <Link
                   to="mailto:academy@gta-it.com"
                   className="text-gray-200/90 hover:text-red-400 transition-colors hover:drop-shadow-md"
                 >
                   academy@gta-it.com
                 </Link>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
@@ -190,9 +209,9 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               {legalLinks.map((link, index) => (
-                <Link 
+                <Link
                   key={index}
-                  to={link.href} 
+                  to={link.href}
                   className="text-gray-300/80 hover:text-red-400 text-sm transition-colors hover:drop-shadow-md"
                 >
                   {link.name}

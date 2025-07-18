@@ -15,32 +15,34 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { CheckCircle, Users, Calendar, CreditCard, Shield, Award, Phone, Mail, MessageSquare, Building, Target } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { phoneNumber } from '@/store/const/constante';
+import emailjs from 'emailjs-com';
 
 const quoteSchema = z.object({
   // Informations entreprise
   companyName: z.string().min(2, 'Le nom de l\'entreprise est requis'),
   industry: z.string().min(1, 'Le secteur d\'activité est requis'),
   companySize: z.string().min(1, 'La taille de l\'entreprise est requise'),
-  
+
   // Contact principal
   firstName: z.string().min(2, 'Le prénom est requis'),
   lastName: z.string().min(2, 'Le nom est requis'),
   email: z.string().email('Email invalide'),
   phone: z.string().min(9, 'Numéro de téléphone invalide'),
   position: z.string().min(2, 'Le poste est requis'),
-  
+
   // Besoins formation
   trainingType: z.string().min(1, 'Le type de formation est requis'),
   participantCount: z.string().min(1, 'Le nombre de participants est requis'),
   trainingLevel: z.string().min(1, 'Le niveau est requis'),
   preferredDates: z.string().optional(),
   trainingLocation: z.string().min(1, 'Le lieu de formation est requis'),
-  
+
   // Besoins spécifiques
   specificNeeds: z.string().optional(),
   budget: z.string().optional(),
   timeline: z.string().min(1, 'Le délai souhaité est requis'),
-  
+
   // Conditions
   newsletter: z.boolean().default(false),
   terms: z.boolean().refine(val => val === true, 'Vous devez accepter les conditions'),
@@ -62,10 +64,10 @@ const EnterpriseQuotePage = () => {
 
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
-    
+
     // Simulation d'envoi
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     console.log('=== DEMANDE DE DEVIS ENTREPRISE ===');
     console.log('Informations entreprise:', {
       companyName: data.companyName,
@@ -95,9 +97,76 @@ const EnterpriseQuotePage = () => {
       newsletter: data.newsletter,
       terms: data.terms
     });
-    
+
+    const templateParams = {
+      companyName: data.companyName,
+      industry: data.industry,
+      companySize: data.companySize,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phone,
+      position: data.position,
+      trainingType: data.trainingType,
+      participantCount: data.participantCount,
+      trainingLevel: data.trainingLevel,
+      preferredDates: data.preferredDates,
+      trainingLocation: data.trainingLocation,
+      specificNeeds: data.specificNeeds,
+      budget: data.budget,
+      timeline: data.timeline,
+      newsletter: data.newsletter ? "Oui" : "Non",
+      terms: data.terms ? "Oui" : "Non"
+    };
+    /*
+        emailjs.send("service_wrv4gyl", "template_jklte5b", templateParams, "njWjzWSlJhhq19mmx")
+          .then((result) => {
+            console.log("Message envoyé avec succès !");
+          }, (error) => {
+            console.error(error);
+          }
+        );
+    */
+    const formatDevisEntreprise = (data: any) => `
+      *📄 DEMANDE DE DEVIS – ENTREPRISE*
+
+      🏢 *Informations sur l'entreprise*
+      - Nom de l’entreprise : ${data.companyName}
+      - Secteur d’activité : ${data.industry}
+      - Taille de l’entreprise : ${data.companySize}
+
+      👤 *Contact principal*
+      - Prénom : ${data.firstName}
+      - Nom : ${data.lastName}
+      - Email : ${data.email}
+      - Téléphone : ${data.phone}
+      - Poste occupé : ${data.position}
+
+      🎯 *Besoins en formation*
+      - Type de formation : ${data.trainingType}
+      - Nombre de participants : ${data.participantCount}
+      - Niveau de formation : ${data.trainingLevel}
+      - Dates souhaitées : ${data.preferredDates}
+      - Lieu de la formation : ${data.trainingLocation}
+
+      📝 *Besoins spécifiques*
+      - Détails particuliers : ${data.specificNeeds || 'Aucun'}
+      - Budget prévu : ${data.budget}
+      - Délais estimés : ${data.timeline}
+
+      ⚙️ *Préférences*
+      - Recevoir la newsletter : ${data.newsletter ? 'Oui' : 'Non'}
+      - Conditions acceptées : ${data.terms ? 'Oui' : 'Non'}
+    `;
+
+    const sendWhatsAppDevis = (data: any) => {
+      const message = encodeURIComponent(formatDevisEntreprise(data));
+      window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    };
+    sendWhatsAppDevis(data);
+
     setIsSubmitting(false);
-    
+
     toast({
       title: "Demande envoyée avec succès !",
       description: "Notre équipe vous contactera sous 24h pour établir votre devis personnalisé.",
@@ -107,7 +176,7 @@ const EnterpriseQuotePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gta-red to-gta-red-light text-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -124,7 +193,7 @@ const EnterpriseQuotePage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-12">
-            
+
             {/* Formulaire principal */}
             <div className="lg:col-span-2">
               <Card>
@@ -137,14 +206,14 @@ const EnterpriseQuotePage = () => {
                 <CardContent>
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                      
+
                       {/* Informations entreprise */}
                       <div className="space-y-6">
                         <h3 className="text-lg font-semibold flex items-center space-x-2">
                           <Building className="w-5 h-5 text-gta-red" />
                           <span>Informations entreprise</span>
                         </h3>
-                        
+
                         <div className="grid md:grid-cols-2 gap-4">
                           <FormField
                             control={form.control}
@@ -159,7 +228,7 @@ const EnterpriseQuotePage = () => {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={form.control}
                             name="industry"
@@ -222,7 +291,7 @@ const EnterpriseQuotePage = () => {
                           <Users className="w-5 h-5 text-gta-red" />
                           <span>Contact principal</span>
                         </h3>
-                        
+
                         <div className="grid md:grid-cols-2 gap-4">
                           <FormField
                             control={form.control}
@@ -237,7 +306,7 @@ const EnterpriseQuotePage = () => {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={form.control}
                             name="lastName"
@@ -267,7 +336,7 @@ const EnterpriseQuotePage = () => {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={form.control}
                             name="phone"
@@ -304,7 +373,7 @@ const EnterpriseQuotePage = () => {
                           <Target className="w-5 h-5 text-gta-red" />
                           <span>Besoins de formation</span>
                         </h3>
-                        
+
                         <div className="grid md:grid-cols-2 gap-4">
                           <FormField
                             control={form.control}
@@ -331,7 +400,7 @@ const EnterpriseQuotePage = () => {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={form.control}
                             name="participantCount"
@@ -382,7 +451,7 @@ const EnterpriseQuotePage = () => {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={form.control}
                             name="trainingLocation"
@@ -426,7 +495,7 @@ const EnterpriseQuotePage = () => {
                       {/* Besoins spécifiques */}
                       <div className="space-y-6">
                         <h3 className="text-lg font-semibold">Besoins spécifiques</h3>
-                        
+
                         <FormField
                           control={form.control}
                           name="specificNeeds"
@@ -434,10 +503,10 @@ const EnterpriseQuotePage = () => {
                             <FormItem>
                               <FormLabel>Besoins particuliers (optionnel)</FormLabel>
                               <FormControl>
-                                <Textarea 
-                                  placeholder="Décrivez vos besoins spécifiques, objectifs particuliers, contraintes..." 
+                                <Textarea
+                                  placeholder="Décrivez vos besoins spécifiques, objectifs particuliers, contraintes..."
                                   className="h-24"
-                                  {...field} 
+                                  {...field}
                                 />
                               </FormControl>
                               <FormMessage />
@@ -470,7 +539,7 @@ const EnterpriseQuotePage = () => {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={form.control}
                             name="timeline"
@@ -519,7 +588,7 @@ const EnterpriseQuotePage = () => {
                             </FormItem>
                           )}
                         />
-                        
+
                         <FormField
                           control={form.control}
                           name="terms"
@@ -542,9 +611,9 @@ const EnterpriseQuotePage = () => {
                         />
                       </div>
 
-                      <Button 
-                        type="submit" 
-                        className="w-full bg-gta-red hover:bg-gta-red-light" 
+                      <Button
+                        type="submit"
+                        className="w-full bg-gta-red hover:bg-gta-red-light"
                         size="lg"
                         disabled={isSubmitting}
                       >
@@ -558,7 +627,7 @@ const EnterpriseQuotePage = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              
+
               {/* Pourquoi choisir GTA Academy */}
               <Card>
                 <CardHeader>

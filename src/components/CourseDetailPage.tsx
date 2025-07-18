@@ -10,13 +10,14 @@ import AuthModal from '@/components/AuthModal';
 import PaymentModal from '@/components/PaymentModal';
 import { Clock, Users, Award, CheckCircle, ArrowLeft, Star, BookOpen } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { GiCheckMark } from 'react-icons/gi';
 
 const CourseDetailPage = () => {
   const { courseId } = useParams<{ courseId: string }>();
   const navigate = useNavigate();
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [paymentModalOpen, setPaymentModalOpen] = useState(false);
-  
+
   const { isAuthenticated, user } = useAuthStore();
   const { getCourseById, fetchCourses, isLoading } = useSubscriptionStore();
 
@@ -94,10 +95,10 @@ const CourseDetailPage = () => {
                 )}
                 <Badge variant="outline">{course.level}</Badge>
               </div>
-              
+
               <h1 className="text-4xl font-bold text-foreground">{course.title}</h1>
               <p className="text-xl text-muted-foreground">{course.description}</p>
-              
+
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center space-x-2">
                   <Clock className="w-4 h-4 text-gta-red" />
@@ -188,11 +189,11 @@ const CourseDetailPage = () => {
                 >
                   {isAuthenticated ? "S'inscrire maintenant" : "Se connecter et s'inscrire"}
                 </Button>
-                
+
                 <div className="text-center text-sm text-muted-foreground">
-                  <p>✅ Accès immédiat après paiement</p>
-                  <p>✅ Support technique inclus</p>
-                  <p>✅ Certificat de fin de formation</p>
+                  <p className="flex items-center gap-2"><GiCheckMark /> <span>Accès immédiat après paiement</span></p>
+                  <p className="flex items-center gap-2"><GiCheckMark /> <span> Support technique inclus</span></p>
+                  <p className="flex items-center gap-2"><GiCheckMark /> <span>Certificat de fin de formation</span></p>
                 </div>
               </CardContent>
             </Card>
@@ -231,7 +232,7 @@ const CourseDetailPage = () => {
         onOpenChange={setAuthModalOpen}
         onSuccess={handleAuthSuccess}
       />
-      
+
       <PaymentModal
         open={paymentModalOpen}
         onOpenChange={setPaymentModalOpen}

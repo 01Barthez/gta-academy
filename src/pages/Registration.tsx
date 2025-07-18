@@ -16,9 +16,11 @@ import { Badge } from '@/components/ui/badge';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { ArrowLeft, Upload, User, Phone, Mail, MapPin, Calendar, GraduationCap, Briefcase, MessageSquare, Laptop, FileText, Camera, CheckCircle, Star, CreditCard, DollarSign, Users, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { phoneNumber, PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID_INSCRIPTION_VACANCE } from '@/store/const/constante';
+import emailjs from 'emailjs-com';
 
 const formSchema = z.object({
-  module: z.string().min(1, "Veuillez sélectionner un module"),
+  // module: z.string().min(1, "Veuillez sélectionner un module"),
   firstName: z.string().min(2, "Le prénom doit contenir au moins 2 caractères"),
   lastName: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
   gender: z.enum(["masculin", "feminin"], { required_error: "Veuillez sélectionner votre sexe" }),
@@ -62,13 +64,13 @@ const RegistrationPage = () => {
 
   const educationLevels = [
     "CEP",
-    "BEPC", 
+    "BEPC",
     "GCE Ordinary Level",
     "PROBATOIRE",
     "BAC",
     "GCE Advanced Level",
     "BAC + 1",
-    "BAC + 2", 
+    "BAC + 2",
     "BAC + 3",
     "BAC + 4",
     "BAC + 5",
@@ -85,7 +87,7 @@ const RegistrationPage = () => {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      module: searchParams.get('module') || "",
+     // module: searchParams.get('module') || "",
       firstName: "",
       lastName: "",
       gender: undefined,
@@ -115,7 +117,7 @@ const RegistrationPage = () => {
       const today = new Date();
       let age = today.getFullYear() - birthDate.getFullYear();
       const monthDiff = today.getMonth() - birthDate.getMonth();
-      
+
       if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
         age--;
       }
@@ -146,22 +148,69 @@ const RegistrationPage = () => {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    
+
     try {
       // Log des données en attendant le backend
       console.log("Données d'inscription:", { ...data, ageGroup });
-      
+
       // Simulation d'envoi
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
+      const templateParams = {
+        full_name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phone: data.phone,
+        tutor_phone: data.tutorPhone,
+        birth_date: data.birthDate,
+        gender: data.gender,
+        city: data.city,
+        neighborhood: data.neighborhood,
+        education_level: data.educationLevel,
+        profession: `${data.profession}${data.professionOther ? ` (${data.professionOther})` : ""}`,
+        module: data.module,
+        session: data.session,
+        has_laptop: data.hasLaptop,
+        motivations: data.motivations,
+        message: data.message,
+        age_group: ageGroup.group,
+        age_group_cost: ageGroup.cost ?? 'N/A'
+      };
+
+      emailjs.send(SERVICE_ID, TEMPLATE_ID_INSCRIPTION_VACANCE, templateParams, PUBLIC_KEY)
+        .then((result) => {
+          console.log("Message envoyé avec succès !");
+        }, (error) => {
+          console.error(error);
+        }
+        );
+      const message =
+        `*Nouvelle inscription : IFP GTA-ACADEMY* %0A` +
+        `👤 *Nom complet* : ${data.firstName} ${data.lastName} %0A` +
+        `📅 *Date de naissance* : ${data.birthDate} %0A` +
+        `🧑 *Genre* : ${data.gender} %0A` +
+        `📞 *Téléphone* : ${data.phone} %0A` +
+        `📧 *Email* : ${data.email} %0A` +
+        `🏘️ *Ville / Quartier* : ${data.city}, ${data.neighborhood} %0A` +
+        `🎓 *Niveau d'études* : ${data.educationLevel} %0A` +
+        `💼 *Profession* : ${data.profession} ${data.professionOther ? `(${data.professionOther})` : ""} %0A` +
+        `🧑‍🏫 *Téléphone du tuteur* : ${data.tutorPhone} %0A` +
+        `💻 *A un ordinateur ?* : ${data.hasLaptop} %0A` +
+        `📘 *Module choisi* : ${data.module} %0A` +
+        `🗓️ *Session* : ${data.session} %0A` +
+        `🧠 *Motivations* : ${data.motivations} %0A` +
+        `💬 *Message* : ${data.message} %0A` +
+        `🧒 *Tranche d'âge* : ${ageGroup.group} (${ageGroup.cost ?? 'N/A'} FCFA)`;
+
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+
       toast({
         title: "Inscription réussie !",
         description: "Votre demande d'inscription a été envoyée avec succès. Nous vous contacterons bientôt.",
       });
-      
+
       // Redirection après succès
       navigate("/training/holidays?registered=true");
-      
+
     } catch (error) {
       toast({
         title: "Erreur",
@@ -176,13 +225,13 @@ const RegistrationPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
       <Header />
-      
+
       {/* Enhanced Breadcrumb */}
       <div className="bg-muted/40 py-6 border-b dark:border-border backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center space-x-3 text-sm">
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               size="sm"
               onClick={() => navigate(-1)}
               className="text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-300 group"
@@ -205,7 +254,7 @@ const RegistrationPage = () => {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] bg-repeat"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-6">
@@ -249,6 +298,8 @@ const RegistrationPage = () => {
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                       {/* Module Selection - Enhanced */}
+
+                      {/*                     
                       <div className="bg-gradient-to-br from-gta-red/5 to-transparent p-6 rounded-xl border border-gta-red/20">
                         <FormField
                           control={form.control}
@@ -280,6 +331,7 @@ const RegistrationPage = () => {
                           )}
                         />
                       </div>
+                      */}
 
                       {/* Personal Information Section */}
                       <div className="space-y-6">
@@ -298,10 +350,10 @@ const RegistrationPage = () => {
                               <FormItem>
                                 <FormLabel className="text-base font-medium">Prénom *</FormLabel>
                                 <FormControl>
-                                  <Input 
-                                    placeholder="Votre prénom" 
+                                  <Input
+                                    placeholder="Votre prénom"
                                     className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                    {...field} 
+                                    {...field}
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -316,10 +368,10 @@ const RegistrationPage = () => {
                               <FormItem>
                                 <FormLabel className="text-base font-medium">Nom *</FormLabel>
                                 <FormControl>
-                                  <Input 
-                                    placeholder="Votre nom" 
+                                  <Input
+                                    placeholder="Votre nom"
                                     className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                    {...field} 
+                                    {...field}
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -366,10 +418,10 @@ const RegistrationPage = () => {
                                 Date de naissance *
                               </FormLabel>
                               <FormControl>
-                                <Input 
-                                  type="date" 
+                                <Input
+                                  type="date"
                                   className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                  {...field} 
+                                  {...field}
                                 />
                               </FormControl>
                               <FormMessage />
@@ -449,10 +501,10 @@ const RegistrationPage = () => {
                                 Numéro de téléphone (WhatsApp de préférence) *
                               </FormLabel>
                               <FormControl>
-                                <Input 
-                                  placeholder="+237 6XX XXX XXX" 
+                                <Input
+                                  placeholder="+237 6XX XXX XXX"
                                   className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                  {...field} 
+                                  {...field}
                                 />
                               </FormControl>
                               <FormMessage />
@@ -470,10 +522,10 @@ const RegistrationPage = () => {
                                 Contact du tuteur/parent *
                               </FormLabel>
                               <FormControl>
-                                <Input 
-                                  placeholder="+237 6XX XXX XXX" 
+                                <Input
+                                  placeholder="+237 6XX XXX XXX"
                                   className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                  {...field} 
+                                  {...field}
                                 />
                               </FormControl>
                               <FormMessage />
@@ -491,11 +543,11 @@ const RegistrationPage = () => {
                                 Adresse email *
                               </FormLabel>
                               <FormControl>
-                                <Input 
-                                  type="email" 
-                                  placeholder="votre.email@exemple.com" 
+                                <Input
+                                  type="email"
+                                  placeholder="votre.email@exemple.com"
                                   className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                  {...field} 
+                                  {...field}
                                 />
                               </FormControl>
                               <FormMessage />
@@ -514,10 +566,10 @@ const RegistrationPage = () => {
                                   Ville *
                                 </FormLabel>
                                 <FormControl>
-                                  <Input 
-                                    placeholder="Votre ville" 
+                                  <Input
+                                    placeholder="Votre ville"
                                     className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                    {...field} 
+                                    {...field}
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -532,10 +584,10 @@ const RegistrationPage = () => {
                               <FormItem>
                                 <FormLabel className="text-base font-medium">Quartier *</FormLabel>
                                 <FormControl>
-                                  <Input 
-                                    placeholder="Votre quartier" 
+                                  <Input
+                                    placeholder="Votre quartier"
                                     className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                    {...field} 
+                                    {...field}
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -615,10 +667,10 @@ const RegistrationPage = () => {
                               <FormItem>
                                 <FormLabel className="text-base font-medium">Précisez votre profession</FormLabel>
                                 <FormControl>
-                                  <Input 
-                                    placeholder="Décrivez votre profession" 
+                                  <Input
+                                    placeholder="Décrivez votre profession"
                                     className="h-12 text-base border-2 focus:border-gta-red/50 transition-colors"
-                                    {...field} 
+                                    {...field}
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -672,10 +724,10 @@ const RegistrationPage = () => {
                                 Vos motivations pour cette formation *
                               </FormLabel>
                               <FormControl>
-                                <Textarea 
+                                <Textarea
                                   placeholder="Décrivez brièvement vos motivations, vos objectifs et ce que vous espérez accomplir grâce à cette formation..."
                                   className="min-h-[120px] text-base border-2 focus:border-gta-red/50 transition-colors resize-none"
-                                  {...field} 
+                                  {...field}
                                 />
                               </FormControl>
                               <FormMessage />
@@ -692,7 +744,7 @@ const RegistrationPage = () => {
                           </div>
                           <h3 className="text-xl font-semibold text-foreground">Pièces justificatives</h3>
                         </div>
-                        
+
                         <FormField
                           control={form.control}
                           name="idDocument"
@@ -702,8 +754,8 @@ const RegistrationPage = () => {
                                 Photocopie de carte nationale d'identité ou carte d'élève/étudiant
                               </FormLabel>
                               <FormControl>
-                                <Input 
-                                  type="file" 
+                                <Input
+                                  type="file"
                                   accept=".pdf,.jpg,.jpeg,.png"
                                   className="h-12 text-base border-2 hover:border-blue-400 transition-colors cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                                   onChange={(e) => field.onChange(e.target.files?.[0])}
@@ -728,8 +780,8 @@ const RegistrationPage = () => {
                                 Photo 4x4 (facultatif)
                               </FormLabel>
                               <FormControl>
-                                <Input 
-                                  type="file" 
+                                <Input
+                                  type="file"
                                   accept=".jpg,.jpeg,.png"
                                   className="h-12 text-base border-2 hover:border-indigo-400 transition-colors cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
                                   onChange={(e) => field.onChange(e.target.files?.[0])}
@@ -753,10 +805,10 @@ const RegistrationPage = () => {
                           <FormItem>
                             <FormLabel className="text-base font-medium">Message ou remarques particulières (facultatif)</FormLabel>
                             <FormControl>
-                              <Textarea 
+                              <Textarea
                                 placeholder="Avez-vous des questions spécifiques, des besoins particuliers ou des remarques que vous souhaitez partager ?"
                                 className="min-h-[100px] text-base border-2 focus:border-gta-red/50 transition-colors resize-none"
-                                {...field} 
+                                {...field}
                               />
                             </FormControl>
                             <FormMessage />
@@ -766,9 +818,9 @@ const RegistrationPage = () => {
 
                       {/* Enhanced Submit Button */}
                       <div className="pt-6">
-                        <Button 
-                          type="submit" 
-                          size="lg" 
+                        <Button
+                          type="submit"
+                          size="lg"
                           className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-gta-red via-gta-red-light to-gta-red hover:from-gta-red-dark hover:via-gta-red hover:to-gta-red-light text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] disabled:hover:scale-100"
                           disabled={isSubmitting}
                         >
@@ -884,7 +936,7 @@ const RegistrationPage = () => {
                         <p className="font-bold text-gta-red-dark text-base mb-2">Frais d'inscription</p>
                         <p className="text-lg font-bold text-gta-red">5 000 FCFA</p>
                       </div>
-                      
+
                       <div className="bg-white/60 dark:bg-black/20 p-4 rounded-lg border border-blue-200">
                         <p className="font-bold text-blue-700 dark:text-blue-400 mb-3">Sessions disponibles</p>
                         <div className="space-y-2">
@@ -898,7 +950,7 @@ const RegistrationPage = () => {
                           </div>
                         </div>
                       </div>
-                      
+
                       <div className="bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 border-2 border-yellow-300 dark:border-yellow-600 rounded-lg p-4">
                         <div className="flex items-start gap-3">
                           <div className="text-yellow-600 dark:text-yellow-400 mt-0.5"></div>
@@ -1005,14 +1057,14 @@ const RegistrationPage = () => {
               <div className="mt-8 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 border-2 border-yellow-300 dark:border-yellow-600 rounded-lg p-6">
                 <div className="flex items-start gap-4">
                   <div className="text-yellow-600 dark:text-yellow-400 mt-1">
-                    
+
                   </div>
                   <div>
                     <h4 className="font-bold text-yellow-800 dark:text-yellow-300 mb-2">
                       Important - Confirmation de paiement
                     </h4>
                     <p className="text-yellow-700 dark:text-yellow-400 text-sm">
-                      Après avoir effectué votre paiement, veuillez envoyer une capture d'écran ou une photo du reçu 
+                      Après avoir effectué votre paiement, veuillez envoyer une capture d'écran ou une photo du reçu
                       par WhatsApp au <strong>+237 690 419 336</strong> pour confirmer votre inscription.
                     </p>
                   </div>

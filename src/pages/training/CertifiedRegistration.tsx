@@ -12,6 +12,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { ArrowLeft, User, Mail, Phone, MapPin, GraduationCap, Briefcase, CreditCard, Clock, Users, Award } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from 'emailjs-com';
+import { phoneNumber, PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID_INSCRIPTION_CERTIFICATIONS } from '@/store/const/constante';
 
 const CertifiedRegistrationPage = () => {
   const { id } = useParams();
@@ -82,6 +84,65 @@ const CertifiedRegistrationPage = () => {
 
     // Simulation d'envoi
     console.log('Données d\'inscription:', formData);
+
+    const templateParams = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      city: formData.city,
+      country: formData.country,
+      education: formData.education,
+      experience: formData.experience,
+      currentJob: formData.currentJob,
+      company: formData.company,
+      motivation: formData.motivation,
+      paymentMethod: formData.paymentMethod,
+      hasLaptop: formData.hasLaptop ? "Oui" : "Non",
+      specialRequests: formData.specialRequests,
+      agreeTerms: formData.agreeTerms ? "Oui" : "Non",
+      agreeMarketing: formData.agreeMarketing ? "Oui" : "Non",
+    };
+
+    emailjs.send("service_wrv4gyl", "template_jklte5b", templateParams, "njWjzWSlJhhq19mmx")
+      .then((result) => {
+        console.log("Message envoyé avec succès !");
+      }, (error) => {
+        console.error(error);
+      }
+      );
+    const message = `
+      *Nouvelle inscription – GTA Academy* 📚
+
+      👤 *Informations personnelles*
+      - Prénom : ${formData.firstName}
+      - Nom : ${formData.lastName}
+      - Email : ${formData.email}
+      - Téléphone : ${formData.phone}
+      - Adresse : ${formData.address}
+      - Ville : ${formData.city}
+      - Pays : ${formData.country || 'Cameroun'}
+
+      🎓 *Parcours académique et professionnel*
+      - Niveau d'études : ${formData.education}
+      - Expérience : ${formData.experience}
+      - Poste actuel : ${formData.currentJob}
+      - Entreprise : ${formData.company}
+      - Motivation : ${formData.motivation}
+
+      💼 *Formation*
+      - Mode de paiement : ${formData.paymentMethod}
+      - Possède un ordinateur : ${formData.hasLaptop ? 'Oui' : 'Non'}
+      - Besoins particuliers : ${formData.specialRequests || 'Aucun'}
+
+      ✅ *Consentements*
+      - Conditions acceptées : ${formData.agreeTerms ? 'Oui' : 'Non'}
+      - Communication marketing : ${formData.agreeMarketing ? 'Oui' : 'Non'}
+      `;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+
 
     toast({
       title: "Inscription envoyée !",

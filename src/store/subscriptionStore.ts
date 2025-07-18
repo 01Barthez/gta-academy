@@ -96,28 +96,28 @@ const PAYMENT_METHODS: PaymentMethod[] = [
   {
     id: 'orange-money',
     name: 'Orange Money',
-    icon: '🟠',
+    icon: '',
     description: 'Paiement sécurisé via Orange Money',
     fees: 0
   },
   {
     id: 'mtn-money',
     name: 'MTN Mobile Money',
-    icon: '💛',
+    icon: '',
     description: 'Paiement rapide avec MTN Mobile Money',
     fees: 0
   },
   {
     id: 'afriland-bank',
     name: 'Afriland First Bank',
-    icon: '🏦',
+    icon: '',
     description: 'Virement bancaire Afriland First Bank',
     fees: 1000
   },
   {
     id: 'cash',
     name: 'Espèces',
-    icon: '💵',
+    icon: '',
     description: 'Paiement en espèces au centre de formation',
     fees: 0
   }

@@ -81,7 +81,7 @@ const Module3Page = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gta-red-dark via-gta-red to-red-600 text-white py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-gta-red via-green-500 to-gta-red text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/40"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">

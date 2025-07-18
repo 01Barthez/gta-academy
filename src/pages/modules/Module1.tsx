@@ -7,11 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-console.log('Module1 component is loading...');
-
 const Module1Page: React.FC = () => {
-  console.log('Module1Page component rendering...');
-
   const learningObjectives = [
     "Être capable d'allumer, manipuler et éteindre un ordinateur en toute sécurité",
     "Utiliser correctement un clavier, une souris et comprendre l'interface de base", 
@@ -82,7 +78,7 @@ const Module1Page: React.FC = () => {
         </div>
       </div>
 
-      <section className="bg-gradient-to-br from-gta-red-dark via-gta-red to-red-600 text-white py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-gta-red via-gta-red to-gta-red-light text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/40"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">

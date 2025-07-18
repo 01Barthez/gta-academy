@@ -32,6 +32,8 @@ const SitemapPage = lazy(() => import("@/pages/Sitemap"));
 const FAQPage = lazy(() => import("@/pages/FAQ"));
 const CourseDetailPage = lazy(() => import("@/pages/CourseDetail"));
 const DashboardPage = lazy(() => import("@/pages/Dashboard"));
+const AgendaPage = lazy(() => import("@/pages/Agenda"));
+const AgendaDetailPage = lazy(() => import("@/pages/agenda/AgendaDetail"));
 
 const Router = () => {
   return (
@@ -66,6 +68,11 @@ const Router = () => {
           <Route path="/training/holidays/modules/module3" element={<Module3Page />} />
           <Route path="/training/holidays/modules/module4" element={<Module4Page />} />
           <Route path="/registration" element={<RegistrationPage />} />
+
+          {/* Agenda routes */}
+          <Route path="/agenda" element={<AgendaPage />} />
+          <Route path="/agenda/:sessionId" element={<AgendaDetailPage />} />
+
 
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/course/:courseId" element={<CourseDetailPage />} />

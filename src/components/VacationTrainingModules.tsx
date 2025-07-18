@@ -127,15 +127,6 @@ const VacationTrainingModules = () => {
                       </CardDescription>
                     </div>
                   </div>
-
-                  <Button
-                    onClick={() => window.location.href = `/registration?module=${module.number}`}
-                    size="sm"
-                    className="bg-white/20 hover:bg-white/30 text-white border-white/30"
-                  >
-                    S'inscrire maintenant
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </Button>
                 </div>
               </CardHeader>
               <CardContent className="p-6">

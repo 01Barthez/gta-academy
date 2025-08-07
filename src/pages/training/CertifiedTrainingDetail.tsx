@@ -13,6 +13,12 @@ const CertifiedTrainingDetailPage = () => {
   const { id } = useParams();
 
   const program = programs.find(p => p.id === id);
+  
+  // Définir des tableaux vides par défaut pour éviter les erreurs
+  const safeModules = program?.modules || [];
+  const safeObjectives = program?.objectives || [];
+  const safeOutcomes = program?.outcomes || [];
+  const safeIncluded = program?.included || [];
 
   if (!program) {
     return (
@@ -117,7 +123,7 @@ const CertifiedTrainingDetailPage = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {program.modules.map((module, idx) => (
+                  {safeModules.map((module, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
                       <span className="w-6 h-6 bg-gta-red text-white rounded-full flex items-center justify-center text-sm font-medium mt-1">
                         {idx + 1}
@@ -139,7 +145,7 @@ const CertifiedTrainingDetailPage = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {program.objectives.map((objective, idx) => (
+                  {safeObjectives.map((objective, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
                       <span className="text-muted-foreground">{objective}</span>
@@ -159,7 +165,7 @@ const CertifiedTrainingDetailPage = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {program.outcomes.map((outcome, idx) => (
+                  {safeOutcomes.map((outcome, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
                       <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
                       <span className="text-muted-foreground">{outcome}</span>
@@ -196,7 +202,7 @@ const CertifiedTrainingDetailPage = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  {program.included.map((item, idx) => (
+                  {safeIncluded.map((item, idx) => (
                     <li key={idx} className="flex items-start space-x-2">
                       <CheckCircle className="w-4 h-4 text-red-500 mt-1 flex-shrink-0" />
                       <span className="text-sm text-muted-foreground">{item}</span>

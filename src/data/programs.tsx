@@ -291,7 +291,7 @@ export const programs: Program[] = [
     duration: "2 mois",
     students: "100 max",
     level: "Débutant à Intermédiaire",
-    price: "80,000 FCFA",
+    price: "150,000 FCFA",
     description: "Formation complète pour gérer efficacement les communautés en ligne et développer une présence digitale forte.",
     longDescription: "Apprenez à construire, animer et fidéliser une communauté en ligne, à créer une stratégie de contenu engageante et à mesurer l'impact de vos actions sur les réseaux sociaux.",
     modules: [
@@ -334,6 +334,7 @@ export const programs: Program[] = [
     level: "Débutant à Intermédiaire",
     price: "150,000 FCFA",
     description: "Formation en conception graphique pour créer des visuels percutants avec des outils modernes.",
+    longDescription: "Cette formation complète vous permettra de maîtriser les outils essentiels de l'infographie moderne et de créer des designs professionnels.",
     modules: [
       "Introduction à l'infographie",
       "Adobe Photoshop",
@@ -344,7 +345,25 @@ export const programs: Program[] = [
     certification: "Attestation GTA + AQP",
     nextStart: "Tout au long de l'année",
     featured: false,
-    icon: Image
+    icon: Image,
+    prerequisites: "Aucun prérequis technique n'est nécessaire. Une sensibilité pour le design et la créativité est un plus.",
+    objectives: [
+      "Maîtriser les outils de base de l'infographie",
+      "Créer des visuels professionnels",
+      "Comprendre les principes du design graphique",
+      "Réaliser des projets concrets"
+    ],
+    outcomes: [
+      "Capacité à créer des logos, affiches et supports de communication",
+      "Maîtrise des logiciels d'infographie",
+      "Création d'un portfolio de travaux"
+    ],
+    included: [
+      "Accès aux logiciels pendant la formation",
+      "Support de cours complet",
+      "Accompagnement personnalisé",
+      "Attestation de formation"
+    ]
   },
   {
     id: 'email-marketing',
@@ -354,6 +373,7 @@ export const programs: Program[] = [
     level: "Débutant",
     price: "50,000 FCFA",
     description: "Formation sur la création et la gestion de campagnes d'emailing efficaces.",
+    longDescription: "Maîtrisez l'art de l'email marketing pour fidéliser vos clients et augmenter vos ventes grâce à des campagnes ciblées et performantes.",
     modules: [
       "Principes de l'email marketing",
       "Création de newsletters",
@@ -364,7 +384,25 @@ export const programs: Program[] = [
     certification: "Attestation GTA + AQP",
     nextStart: "Tout au long de l'année",
     featured: false,
-    icon: Mail
+    icon: Mail,
+    prerequisites: "Aucun prérequis technique n'est nécessaire. Une connaissance de base du marketing est un plus.",
+    objectives: [
+      "Comprendre les fondamentaux de l'email marketing",
+      "Créer des campagnes d'emailing efficaces",
+      "Segmenter une base de contacts",
+      "Analyser les performances des campagnes"
+    ],
+    outcomes: [
+      "Création de campagnes d'emailing performantes",
+      "Maîtrise des outils d'emailing",
+      "Optimisation du taux d'ouverture et de clics"
+    ],
+    included: [
+      "Accès aux outils d'emailing pendant la formation",
+      "Support de cours complet",
+      "Accompagnement personnalisé",
+      "Attestation de formation"
+    ]
   },
   {
     id: 'aws',
@@ -474,6 +512,7 @@ export const programs: Program[] = [
     level: "Intermédiaire à Avancé",
     price: "300,000 FCFA",
     description: "Introduction aux algorithmes et techniques de machine learning.",
+    longDescription: "Découvrez les fondamentaux du Machine Learning et apprenez à créer des modèles prédictifs à l'aide des bibliothèques Python les plus populaires.",
     modules: [
       "Introduction au Machine Learning",
       "Algorithmes supervisés",
@@ -484,7 +523,25 @@ export const programs: Program[] = [
     certification: "Attestation GTA + AQP",
     nextStart: "Tout au long de l'année",
     featured: false,
-    icon: Bot
+    icon: Cpu,
+    prerequisites: "Bases en programmation Python et en mathématiques (algèbre linéaire, statistiques).",
+    objectives: [
+      "Comprendre les concepts fondamentaux du Machine Learning",
+      "Maîtriser les algorithmes supervisés et non supervisés",
+      "Mettre en œuvre des modèles avec Scikit-learn",
+      "Évaluer et optimiser les performances des modèles"
+    ],
+    outcomes: [
+      "Création de modèles de Machine Learning",
+      "Analyse et prétraitement des données",
+      "Déploiement de modèles"
+    ],
+    included: [
+      "Accès aux ressources pédagogiques",
+      "Support de cours complet",
+      "Accompagnement personnalisé",
+      "Attestation de formation"
+    ]
   },
   {
     id: 'montage-audio-visuel',
@@ -494,6 +551,7 @@ export const programs: Program[] = [
     level: "Débutant à Intermédiaire",
     price: "150,000 FCFA",
     description: "Formation sur le montage et la production de contenus audio-visuels.",
+    longDescription: "Maîtrisez les techniques de montage vidéo et audio professionnel pour créer des contenus captivants avec les outils les plus utilisés dans l'industrie.",
     modules: [
       "Introduction au montage vidéo",
       "Adobe Premiere Pro",
@@ -504,7 +562,25 @@ export const programs: Program[] = [
     certification: "Attestation GTA + AQP",
     nextStart: "Tout au long de l'année",
     featured: false,
-    icon: Film
+    icon: Film,
+    prerequisites: "Aucun prérequis technique n'est nécessaire. Une sensibilité pour l'image et le son est un plus.",
+    objectives: [
+      "Maîtriser les techniques de base du montage vidéo",
+      "Apprendre à utiliser Adobe Premiere Pro",
+      "Comprendre les principes du montage audio",
+      "Réaliser des projets concrets"
+    ],
+    outcomes: [
+      "Création de vidéos professionnelles",
+      "Maîtrise des logiciels de montage",
+      "Montage audio de qualité"
+    ],
+    included: [
+      "Accès aux logiciels pendant la formation",
+      "Support de cours complet",
+      "Accompagnement personnalisé",
+      "Attestation de formation"
+    ]
   },
   {
     id: 'bureautique',
@@ -514,6 +590,7 @@ export const programs: Program[] = [
     level: "Débutant",
     price: "150,000 FCFA",
     description: "Formation sur les outils bureautiques essentiels pour la productivité professionnelle.",
+    longDescription: "Acquérez les compétences essentielles en bureautique pour être opérationnel dans tout environnement professionnel moderne. Maîtrisez les outils incontournables de la suite Microsoft Office.",
     modules: [
       "Introduction à l'informatique",
       "Microsoft Word",
@@ -524,7 +601,26 @@ export const programs: Program[] = [
     certification: "Attestation GTA + AQP",
     nextStart: "Tout au long de l'année",
     featured: false,
-    icon: FileText
+    icon: FileText,
+    prerequisites: "Aucun prérequis n'est nécessaire. Cette formation est ouverte à tous les débutants.",
+    objectives: [
+      "Maîtriser les bases de l'informatique",
+      "Utiliser efficacement Microsoft Word pour la rédaction",
+      "Créer et gérer des tableaux avec Microsoft Excel",
+      "Concevoir des présentations professionnelles avec PowerPoint"
+    ],
+    outcomes: [
+      "Maîtrise complète des outils bureautiques",
+      "Création de documents professionnels",
+      "Gestion efficace des données"
+    ],
+    included: [
+      "Accès aux logiciels pendant la formation",
+      "Support de cours complet",
+      "Exercices pratiques",
+      "Accompagnement personnalisé",
+      "Attestation de formation"
+    ]
   },
 
   /*

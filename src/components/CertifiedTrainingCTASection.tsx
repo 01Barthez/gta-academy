@@ -2,13 +2,59 @@ import React from 'react';
 import { ArrowRight, Calendar, Clock, Award, Briefcase, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+
+// Fonction utilitaire pour calculer la différence en jours entre deux dates
+const calculateDaysDifference = (futureDate: Date): number => {
+  const today = new Date();
+  // On réinitialise les heures pour ne comparer que les dates
+  today.setHours(0, 0, 0, 0);
+  const diffTime = futureDate.getTime() - today.getTime();
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+};
 
 const CertifiedTrainingCTASection = () => {
-  // Calcul des jours restants avant le 6 octobre
-  const today = new Date();
-  const rentree = new Date(today.getFullYear(), 9, 6);
-  const diffTime = rentree.getTime() - today.getTime();
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const [daysLeft, setDaysLeft] = useState<number | null>(null);
+  const [showCountdown, setShowCountdown] = useState(true);
+  const [showLateRegistration, setShowLateRegistration] = useState(false);
+  const [daysAfterStart, setDaysAfterStart] = useState(0);
+
+  const updateCountdown = useCallback(() => {
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const rentree = new Date(currentYear, 9, 6); // 6 octobre de l'année en cours
+    
+    // Si on est après le 6 octobre, on vérifie l'année suivante
+    if (today > rentree) {
+      rentree.setFullYear(currentYear + 1);
+    }
+    
+    const diffDays = calculateDaysDifference(rentree);
+    
+    // Si la date de rentrée est passée
+    if (diffDays < 0) {
+      const daysAfter = Math.abs(diffDays);
+      setDaysAfterStart(daysAfter);
+      setShowCountdown(false);
+      setShowLateRegistration(daysAfter <= 30); // Afficher jusqu'à 30 jours après le début
+      return;
+    }
+    
+    setDaysLeft(diffDays);
+    setShowCountdown(true);
+    setShowLateRegistration(false);
+  }, []);
+
+  // Mise à jour du compteur toutes les heures pour économiser des ressources
+  useEffect(() => {
+    updateCountdown(); // Appel initial
+    
+    // Mettre à jour toutes les heures (3600000 ms)
+    const interval = setInterval(updateCountdown, 3600000);
+    
+    // Nettoyer l'intervalle lors du démontage du composant
+    return () => clearInterval(interval);
+  }, [updateCountdown]);
   
   return (
     <section className="py-16 bg-gradient-to-br from-background to-muted/5 relative overflow-hidden">
@@ -27,10 +73,25 @@ const CertifiedTrainingCTASection = () => {
             pour la rentrée d'octobre !
           </span>
         </h2>
-        <div className="inline-flex items-center px-6 py-2 mb-8 text-lg font-semibold text-white bg-gta-red/90 rounded-full shadow-lg">
-          <Clock className="w-5 h-5 mr-2" />
-          Plus que {diffDays} jours avant le début des cours
-        </div>
+        {showCountdown && daysLeft !== null && (
+          <div className="inline-flex items-center px-6 py-2 mb-8 text-lg font-semibold text-white bg-gta-red/90 rounded-full shadow-lg">
+            <Clock className="w-5 h-5 mr-2" />
+            {daysLeft === 0 ? (
+              "C'est aujourd'hui ! Dernière chance de vous inscrire !"
+            ) : (
+              `Plus que ${daysLeft} ${daysLeft === 1 ? 'jour' : 'jours'} avant le début des cours`
+            )}
+          </div>
+        )}
+        
+        {showLateRegistration && daysAfterStart > 0 && (
+          <div className="inline-flex items-center px-6 py-2 mb-8 text-lg font-semibold text-white bg-amber-600/90 rounded-full shadow-lg">
+            <Clock className="w-5 h-5 mr-2" />
+            {daysAfterStart === 1 
+              ? "La formation a commencé hier ! Il est encore temps de nous rejoindre !"
+              : `La formation a commencé il y a ${daysAfterStart} jours. Rejoignez-nous rapidement !`}
+          </div>
+        )}
         
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
           {[

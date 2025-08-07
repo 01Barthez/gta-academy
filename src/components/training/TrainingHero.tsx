@@ -26,8 +26,8 @@ const TrainingHero: React.FC<TrainingHeroProps> = ({
   programId
 }) => {
   return (
-    <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-background to-muted/10">
-      <div className="container mx-auto px-4">
+    <section className="relative py-12 md:py-16 lg:py-20 bg-background overflow-hidden">
+      <div className="container relative mx-auto px-4">
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-6">
           <Link to="/training" className="hover:text-gta-red transition-colors">Formations</Link>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, CalendarDays, Clock, Users, MapPin, BookOpen } from 'lucide-react';
-import { mockAgenda } from '@/mock/agenda.mock';
+import { mockAgenda } from '@/data/agenda.data';
 
 // Composants UI simulés
 const Card = ({ children, className = "" }) => (

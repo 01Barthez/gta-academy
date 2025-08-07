@@ -28,7 +28,7 @@ import {
     Share2
 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-import { mockAgenda } from "@/mock/agenda.mock";
+import { mockAgenda } from "@/data/agenda.data";
 
 const AgendaDetail = () => {
     const { sessionId } = useParams<{ sessionId: string }>();

@@ -18,8 +18,8 @@ import {
   Clock,
   Grid3X3
 } from 'lucide-react';
-import { mockAgenda } from '@/mock/agenda.mock';
 import EnhancedCalendarComponent from './AgendaSessionCardPersonnalized';
+import { mockAgenda } from '@/data/agenda.data';
 
 const AgendaCalendar = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());

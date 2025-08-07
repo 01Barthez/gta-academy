@@ -4,18 +4,30 @@ import { Clock, Users, Award, BookOpen, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
+interface Module {
+  id?: string;
+  title: string;
+  description?: string;
+}
+
 interface CertifiedProgram {
+  id: string;
   title: string;
   duration: string;
   students: string;
   level: string;
   price: string;
   description: string;
-  modules: string[];
+  longDescription?: string;
+  prerequisites?: string;
+  objectives?: string[];
+  outcomes?: string[];
+  included?: string[];
+  modules: (string | Module)[];
   certification: string;
   nextStart: string;
   featured: boolean;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 interface CertifiedProgramCardProps {
@@ -23,22 +35,14 @@ interface CertifiedProgramCardProps {
 }
 
 const CertifiedProgramCard = ({ program }: CertifiedProgramCardProps) => {
-  const IconComponent = program.icon;
+  if (!program) {
+    return null; // ou un composant de chargement/erreur
+  }
 
-  // Mapping des titres vers les IDs de cours
-  const getCourseId = (title: string) => {
-    const titleMap: { [key: string]: string } = {
-      'Développement Web Full-Stack': 'certified-web-dev',
-      'Développement Web Fullstack': 'certified-web-dev',
-      'Cybersécurité et Ethical Hacking': 'certified-cybersec',
-      'Cybersécurité Avancée': 'certified-cybersec',
-      'Data Science et Intelligence Artificielle': 'certified-data-science',
-      'Data Science & Machine Learning': 'certified-data-science'
-    };
-    return titleMap[title] || 'certified-web-dev';
-  };
+  const IconComponent = program.icon || (() => <BookOpen className="w-6 h-6" />);
 
-  const courseId = getCourseId(program.title);
+  // Utilisation directe de l'ID du programme pour la navigation
+  const courseId = program.id;
 
   return (
     <div className={`bg-card rounded-xl p-8 shadow-lg border transition-all hover:shadow-xl hover:scale-105 ${program.featured ? 'ring-2 ring-gta-red relative' : ''}`}>
@@ -54,7 +58,7 @@ const CertifiedProgramCard = ({ program }: CertifiedProgramCardProps) => {
       <div className="mb-6">
         <div className="flex items-center space-x-3 mb-4">
           <div className="w-12 h-12 bg-gta-red/10 rounded-full flex items-center justify-center">
-            <IconComponent className="w-6 h-6 text-gta-red" />
+            {IconComponent && <IconComponent className="w-6 h-6 text-gta-red" />}
           </div>
           <h3 className="text-2xl font-bold text-foreground">{program.title}</h3>
         </div>
@@ -83,12 +87,15 @@ const CertifiedProgramCard = ({ program }: CertifiedProgramCardProps) => {
       <div className="mb-6">
         <h4 className="font-semibold mb-3 text-foreground">Modules de formation :</h4>
         <ul className="space-y-2">
-          {program.modules.map((module, idx) => (
-            <li key={idx} className="flex items-start space-x-2 text-sm">
-              <span className="w-1.5 h-1.5 bg-gta-red rounded-full mt-2 flex-shrink-0"></span>
-              <span className="text-muted-foreground">{module}</span>
-            </li>
-          ))}
+          {program.modules.map((module, idx) => {
+            const moduleText = typeof module === 'string' ? module : module.title;
+            return (
+              <li key={idx} className="flex items-start space-x-2 text-sm">
+                <span className="w-1.5 h-1.5 bg-gta-red rounded-full mt-2 flex-shrink-0"></span>
+                <span className="text-muted-foreground">{moduleText}</span>
+              </li>
+            );
+          })}
         </ul>
       </div>
 

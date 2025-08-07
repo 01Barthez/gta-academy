@@ -13,12 +13,12 @@ const About = () => {
     },
     {
       icon: Users,
-      title: "10+",
+      title: "25+",
       description: "Étudiants formés avec succès"
     },
     {
       icon: Award,
-      title: "15+",
+      title: "20+",
       description: "Filières disponibles"
     },
     {

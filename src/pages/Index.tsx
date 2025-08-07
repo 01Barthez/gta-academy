@@ -10,11 +10,7 @@ import TrainingScheduleCTASection from '../components/TrainingScheduleCTASection
 import Footer from '@/components/Footer';
 import HeroFAQ from '@/components/HeroFAQ';
 
-console.log('Index component is loading...');
-
 const Index: React.FC = () => {
-  console.log('Index component rendering...');
-  
   return (
     <div className="min-h-screen bg-background font-inter animate-fade-in">
       <Header />
@@ -29,7 +25,5 @@ const Index: React.FC = () => {
     </div>
   );
 };
-
-console.log('Index component defined');
 
 export default Index;

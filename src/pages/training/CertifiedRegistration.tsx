@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -14,6 +14,7 @@ import { ArrowLeft, User, Mail, Phone, MapPin, GraduationCap, Briefcase, CreditC
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
 import { phoneNumber, PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID_INSCRIPTION_CERTIFICATIONS } from '@/store/const/constante';
+import { programs } from '@/data/programs';
 
 const CertifiedRegistrationPage = () => {
   const { id } = useParams();
@@ -47,28 +48,25 @@ const CertifiedRegistrationPage = () => {
     agreeMarketing: false
   });
 
-  const formations = {
-    'certified-web-dev': {
-      title: "Développement Web Full-Stack",
-      duration: "6 mois",
-      price: "450,000 FCFA",
-      nextStart: "15 Février 2025"
-    },
-    'certified-cybersec': {
-      title: "Cybersécurité Avancée",
-      duration: "4 mois",
-      price: "500,000 FCFA",
-      nextStart: "15 Mars 2025"
-    },
-    'certified-data-science': {
-      title: "Data Science & Machine Learning",
-      duration: "5 mois",
-      price: "550,000 FCFA",
-      nextStart: "1er Mars 2025"
-    }
-  };
+  const [formation, setFormation] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  const formation = formations[id as keyof typeof formations];
+  useEffect(() => {
+    if (id) {
+      const selectedFormation = programs.find(program => program.id === id);
+      if (selectedFormation) {
+        setFormation({
+          id: selectedFormation.id,
+          title: selectedFormation.title,
+          duration: selectedFormation.duration,
+          price: selectedFormation.price,
+          nextStart: selectedFormation.nextStart,
+          certification: selectedFormation.certification
+        });
+      }
+      setLoading(false);
+    }
+  }, [id]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -160,6 +158,21 @@ const CertifiedRegistrationPage = () => {
       [field]: value
     }));
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto px-4 py-20 text-center">
+          <div className="animate-pulse">
+            <div className="h-8 bg-gray-200 rounded w-1/3 mx-auto mb-4"></div>
+            <div className="h-4 bg-gray-200 rounded w-1/4 mx-auto"></div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!formation) {
     return (

@@ -39,7 +39,8 @@ const CertifiedProgramCard = ({ program }: CertifiedProgramCardProps) => {
     return null; // ou un composant de chargement/erreur
   }
 
-  const IconComponent = program.icon || (() => <BookOpen className="w-6 h-6" />);
+  // Vérification que program.icon est bien un composant valide
+  const IconComponent = program.icon || BookOpen;
 
   // Utilisation directe de l'ID du programme pour la navigation
   const courseId = program.id;

@@ -204,7 +204,7 @@ export const programs: Program[] = [
     ]
   },
 
-    // Autres formations certifiantes (AQP)
+  // Autres formations certifiantes (AQP)
   {
     id: 'ia-marketing',
     title: "IA & Automatisation Marketing",
@@ -387,6 +387,26 @@ export const programs: Program[] = [
     icon: Cloud
   },
   {
+    id: "azure",
+    title: "Parcours Azure",
+    duration: "6 mois",
+    students: "100 max",
+    level: "Intermédiaire à Avancé",
+    price: "300,000 FCFA",
+    description: "Formation spécialisée sur la plateforme cloud Microsoft Azure.",
+    modules: [
+      "Introduction à Azure",
+      "Services de calcul (VM, App Services)",
+      "Stockage et bases de données",
+      "Réseaux et sécurité",
+      "Projets pratiques Azure"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Cloud
+  },
+  {
     id: 'linux',
     title: "Administration Linux",
     duration: "6 mois",
@@ -506,22 +526,8 @@ export const programs: Program[] = [
     featured: false,
     icon: FileText
   },
+
   /*
-    {
-    title: "Parcours Azure",
-    duration: "6 mois",
-    students: "100 max",
-    level: "Intermédiaire à Avancé",
-    price: "300,000 FCFA",
-    description: "Formation spécialisée sur la plateforme cloud Microsoft Azure.",
-    modules: [
-      "Introduction à Azure",
-      "Services de calcul (VM, App Services)",
-      "Stockage et bases de données",
-      "Réseaux et sécurité",
-      "Projets pratiques Azure"
-    ],
-    certification: "Attestation GTA + AQP",
-  },
+   
 */
 ];

@@ -17,6 +17,8 @@ const CertifiedTrainingPage = () => {
 
       <CertifiedTrainingPrograms />
 
+      {/* Certified CTA Section Here */}
+
       <Footer />
     </div>
   );

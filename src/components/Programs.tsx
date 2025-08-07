@@ -4,59 +4,9 @@ import { Code, Database, Shield, Smartphone, Brain, Cloud, ArrowRight } from 'lu
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import OptimizedImage from '@/components/ui/optimized-image';
+import { programs } from '@/data/programs';
 
 const Programs = () => {
-  const programs = [
-    {
-      icon: Code,
-      title: "Développement Web",
-      description: "Formation complète en développement web moderne",
-      duration: "6 mois",
-      level: "Débutant à Avancé",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop&auto=format"
-    },
-    {
-      icon: Database,
-      title: "Data Science",
-      description: "Maîtrisez l'analyse de données et l'IA",
-      duration: "5 mois",
-      level: "Intermédiaire",
-      image: "https://media.istockphoto.com/id/1448152453/vector/big-data-technology-and-data-science-illustration-data-flow-concept-querying-analysing.jpg?s=612x612&w=0&k=20&c=To0lhCrVmDYdSkOUOGxGsjlYe0buj_wwGCDqYhF9p2o="
-    },
-    {
-      icon: Shield,
-      title: "Cybersécurité",
-      description: "Devenez expert en sécurité informatique",
-      duration: "4 mois",
-      level: "Avancé",
-      image: "https://media.istockphoto.com/id/1412282189/fr/photo/serrure-concept-de-technologie-de-r%C3%A9seau.jpg?s=612x612&w=0&k=20&c=LfGUeLwtpxgUNh32DNajQkuy3EgDa5FiixAVK9fegSQ="
-    },
-    {
-      icon: Smartphone,
-      title: "Développement Mobile",
-      description: "Créez des apps iOS et Android",
-      duration: "4 mois",
-      level: "Intermédiaire",
-      image: "https://media.istockphoto.com/id/1481181755/photo/african-american-man-writing-lines-of-code-on-desktop-computer-with-multiple-monitors-and.jpg?s=612x612&w=0&k=20&c=EQN-Ef6wuTG74-xjQTHTRmZGZwnMP51MKzslRSDmIaU="
-    },
-    {
-      icon: Brain,
-      title: "Intelligence Artificielle",
-      description: "Machine Learning et Deep Learning",
-      duration: "6 mois",
-      level: "Avancé",
-      image: "https://apolearn.com/wp-content/uploads/2024/04/machine-learning-tout-savoir-une.jpg"
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Computing",
-      description: "AWS, Azure et technologies cloud",
-      duration: "3 mois",
-      level: "Intermédiaire",
-      image: "https://media.istockphoto.com/id/1399936043/photo/data-transfer-cloud-computing-technology-concept-there-is-a-large-prominent-cloud-icon-in-the.jpg?s=612x612&w=0&k=20&c=pSrIUkBc6Yf1gT7G0SnjQL4T-PjbC6KmFZavud7To2I="
-    }
-  ];
-
   return (
     <section id="programs" className="py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -71,7 +21,7 @@ const Programs = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {programs.map((program, index) => {
+          {programs.slice(0, 6).map((program, index) => {
             const IconComponent = program.icon;
             return (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group overflow-hidden">

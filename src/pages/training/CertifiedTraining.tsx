@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import CertifiedTrainingHero from '@/components/CertifiedTrainingHero';
 import CertifiedTrainingBenefits from '@/components/CertifiedTrainingBenefits';
 import CertifiedTrainingPrograms from '@/components/CertifiedTrainingPrograms';
+import CertifiedTrainingCTA from '@/components/CertifiedTrainingCTA';
 
 const CertifiedTrainingPage = () => {
   return (
@@ -17,7 +18,7 @@ const CertifiedTrainingPage = () => {
 
       <CertifiedTrainingPrograms />
 
-      {/* Certified CTA Section Here */}
+      <CertifiedTrainingCTA />
 
       <Footer />
     </div>

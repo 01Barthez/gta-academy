@@ -2,6 +2,7 @@ import { Code, Cpu, Shield, Smartphone, Cloud, Bot, BarChart2, Mail, Users, Imag
 
 interface Program {
   id: string;
+  image?: string;
   title: string;
   duration: string;
   students: string;
@@ -23,6 +24,7 @@ interface Program {
 export const programs: Program[] = [
   {
     id: 'web-dev',
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
     title: "Web Design (Génie Logiciel)",
     duration: "9 mois + 3 mois de stage",
     students: "100 max",
@@ -69,26 +71,26 @@ export const programs: Program[] = [
   },
   {
     id: 'data-science',
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop",
     title: "Data Science & Intelligence Artificielle",
-    duration: "9 mois + 3 mois de stage",
-    students: "100 max",
+    duration: "8 mois",
+    students: "50 max",
     level: "Intermédiaire à Avancé",
-    price: "500,000 FCFA",
-    description: "Programme approfondi sur l'analyse de données et l'intelligence artificielle, incluant les techniques d'apprentissage automatique et de traitement des données massives.",
-    longDescription: "Devenez un expert en data science et IA grâce à ce programme complet qui couvre l'analyse de données, le machine learning et le deep learning, avec des projets concrets sur des données réelles.",
+    price: "450,000 FCFA",
+    description: "Maîtrisez l'analyse de données, le Machine Learning et le Deep Learning avec Python et les bibliothèques modernes.",
+    longDescription: "Cette formation complète vous permettra de maîtriser les techniques avancées d'analyse de données et d'intelligence artificielle, de la collecte des données au déploiement de modèles en production.",
     modules: [
-      "Introduction à la Data Science",
-      "Statistiques et probabilités",
-      "Python pour la Data Science",
-      "Machine Learning (Scikit-learn, TensorFlow)",
-      "Deep Learning",
-      "Big Data et Hadoop",
-      "Visualisation de données (Tableau, Power BI)",
-      "Déploiement de modèles d'IA",
-      "Projets pratiques en IA"
+      "Python pour la Data Science (NumPy, Pandas)",
+      "Visualisation des données (Matplotlib, Seaborn, Plotly)",
+      "Statistiques pour la Data Science",
+      "Machine Learning avec Scikit-learn",
+      "Deep Learning avec TensorFlow et PyTorch",
+      "Traitement du langage naturel (NLP)",
+      "Vision par ordinateur",
+      "Déploiement de modèles ML"
     ],
     certification: "Certificat GTA + CQP",
-    nextStart: "06 Octobre 2025",
+    nextStart: "15 Septembre 2025",
     featured: true,
     icon: BarChart2,
     prerequisites: "Bases en programmation (Python recommandé) et en mathématiques. Une expérience préalable en analyse de données est un plus mais pas obligatoire.",
@@ -115,6 +117,7 @@ export const programs: Program[] = [
   },
   {
     id: 'marketing-digital',
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop",
     title: "Marketing Digital",
     duration: "9 mois + 3 mois de stage",
     students: "100 max",
@@ -160,6 +163,7 @@ export const programs: Program[] = [
   },
   {
     id: 'cloud-computing',
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop",
     title: "Cloud Computing & DevOps",
     duration: "9 mois + 3 mois de stage",
     students: "100 max",
@@ -207,6 +211,7 @@ export const programs: Program[] = [
   // Autres formations certifiantes (AQP)
   {
     id: 'ia-marketing',
+    image: "https://images.unsplash.com/photo-1617791160536-598cf32026fb?w=800&auto=format&fit=crop",
     title: "IA & Automatisation Marketing",
     duration: "2 mois",
     students: "100 max",
@@ -247,6 +252,7 @@ export const programs: Program[] = [
   },
   {
     id: 'seo-sea',
+    image: "https://www.redacteur.com/blog/wp-content/uploads/sites/6/2022/11/redaction-seo-blog.jpg",
     title: "Référencement SEO/SEA",
     duration: "2 mois",
     students: "100 max",
@@ -287,6 +293,7 @@ export const programs: Program[] = [
   },
   {
     id: 'community-management',
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&auto=format&fit=crop",
     title: "Community Management",
     duration: "3 mois",
     students: "100 max",
@@ -346,6 +353,7 @@ export const programs: Program[] = [
     nextStart: "Tout au long de l'année",
     featured: false,
     icon: Image,
+    image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&auto=format&fit=crop",
     prerequisites: "Aucun prérequis technique n'est nécessaire. Une sensibilité pour le design et la créativité est un plus.",
     objectives: [
       "Maîtriser les outils de base de l'infographie",
@@ -367,6 +375,7 @@ export const programs: Program[] = [
   },
   {
     id: 'email-marketing',
+    image: "https://images.unsplash.com/photo-1603796846097-bbb99c9c37b8?w=800&auto=format&fit=crop",
     title: "Email Marketing",
     duration: "1 mois",
     students: "100 max",

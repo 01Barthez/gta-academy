@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Clock, Users, Award, CheckCircle, Calendar, BookOpen, Target, Trophy, ArrowLeft, Star } from 'lucide-react';
 import { programs } from '@/data/programs';
+import TrainingHero from '@/components/training/TrainingHero';
 
 const CertifiedTrainingDetailPage = () => {
   const { id } = useParams();
@@ -41,74 +42,17 @@ const CertifiedTrainingDetailPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
+      <TrainingHero
+        title={program.title}
+        description={program.description}
+        duration={program.duration}
+        level={program.level}
+        startDate="6 Octobre 2024"
+        price={`${program.price} FCFA`}
+        programId={program.id}
+      />
+      
       <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-8">
-          <Link to="/training" className="hover:text-gta-red">Formations</Link>
-          <span>/</span>
-          <Link to="/training/certified" className="hover:text-gta-red">Certifiantes</Link>
-          <span>/</span>
-          <span className="text-foreground">{program.title}</span>
-        </div>
-
-        {/* Header */}
-        <div className="mb-8">          
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-            <div className="flex-1">
-              <div className="flex items-center space-x-3 mb-4">
-                {program.featured && (
-                  <Badge className="bg-gta-red text-white">
-                    <Star className="w-3 h-3 mr-1" />
-                    Populaire
-                  </Badge>
-                )}
-                <Badge variant="outline">{program.level}</Badge>
-              </div>
-              <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">{program.title}</h1>
-              <p className="text-xl text-muted-foreground mb-6">{program.description}</p>
-              
-              {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-5 h-5 text-gta-red" />
-                  <span className="text-sm text-muted-foreground">{program.duration}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-gta-red" />
-                  <span className="text-sm text-muted-foreground">{program.students}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Calendar className="w-5 h-5 text-gta-red" />
-                  <span className="text-sm text-muted-foreground">{program.nextStart}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Award className="w-5 h-5 text-gta-red" />
-                  <span className="text-sm text-muted-foreground">Certifiant</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Prix et CTA */}
-            <div className="lg:w-80">
-              <Card className="border-2 border-gta-red/20">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl text-gta-red">{program.price}</CardTitle>
-                  <CardDescription>Paiement en 3 fois possible</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <Link to={`/training/certified/${id}/registration`} className="block">
-                    <Button className="w-full bg-gta-red hover:bg-gta-red-light text-white">
-                      S'inscrire maintenant
-                    </Button>
-                  </Link>
-                  <p className="text-xs text-center text-muted-foreground">
-                    Prochaine session : {program.nextStart}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
 
         {/* Contenu principal */}
         <div className="grid lg:grid-cols-3 gap-8">

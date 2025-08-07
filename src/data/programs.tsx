@@ -210,211 +210,57 @@ export const programs: Program[] = [
 
   // Autres formations certifiantes (AQP)
   {
-    id: 'ia-marketing',
-    image: "https://images.unsplash.com/photo-1617791160536-598cf32026fb?w=800&auto=format&fit=crop",
-    title: "IA & Automatisation Marketing",
-    duration: "2 mois",
+    id: 'cybersecurity',
+    image: "https://www.genetec.com/binaries/content/gallery/illustrationstock_cyberthreats-recolored_adobestock_422696329.jpg",
+    title: "Hacking & Cybersécurité",
+    duration: "6 mois",
     students: "100 max",
-    level: "Intermédiaire",
-    price: "100,000 FCFA",
-    description: "Formation spécialisée en intelligence artificielle appliquée à l'automatisation des stratégies marketing.",
-    longDescription: "Maîtrisez les outils d'IA et d'automatisation pour optimiser vos campagnes marketing et personnaliser l'expérience client à grande échelle.",
+    level: "Intermédiaire à Avancé",
+    price: "300,000 FCFA",
+    description: "Formation complète en cybersécurité et hacking éthique pour protéger les systèmes et réseaux contre les menaces modernes.",
+    longDescription: "Cette formation intensive en cybersécurité et hacking éthique vous permettra de maîtriser les techniques avancées pour identifier, analyser et contrer les cybermenaces. Apprenez à effectuer des tests de pénétration, à sécuriser des réseaux et à gérer les vulnérabilités avec des outils professionnels utilisés dans l'industrie.",
     modules: [
-      "Introduction à l'IA en marketing",
-      "Outils d'automatisation (HubSpot, n8n)",
-      "Analyse prédictive",
-      "Personnalisation des campagnes",
-      "Projets pratiques"
+      "Introduction à la cybersécurité et concepts fondamentaux",
+      "Tests de pénétration (Penetration Testing) avec Kali Linux",
+      "Sécurité des réseaux (pare-feu, VPN, IDS/IPS)",
+      "Gestion des vulnérabilités et analyse des risques",
+      "Cryptographie et sécurisation des données",
+      "Hacking éthique : outils et méthodologies (Metasploit, Nmap, Burp Suite)",
+      "Sécurité des applications web",
+      "Réponse aux incidents et forensic informatique",
+      "Cloud security (AWS, Azure)",
+      "Projets pratiques sur des environnements simulés"
     ],
     certification: "Attestation GTA + AQP",
     nextStart: "Tout au long de l'année",
     featured: false,
-    icon: Mail,
-    prerequisites: "Bonne connaissance des bases du marketing digital. Une expérience préalable avec des outils marketing est un plus.",
+    icon: Shield,
+    prerequisites: "Connaissances de base en informatique et réseaux. Une familiarité avec Linux et la programmation (Python ou autre) est un plus.",
     objectives: [
-      "Comprendre les applications de l'IA dans le marketing",
-      "Automatiser les processus marketing récurrents",
-      "Utiliser l'analyse prédictive pour anticiper les tendances",
-      "Personnaliser les expériences clients à grande échelle"
+      "Comprendre les principes fondamentaux de la cybersécurité",
+      "Maîtriser les techniques de hacking éthique",
+      "Apprendre à sécuriser les réseaux et les applications",
+      "Savoir répondre aux incidents de sécurité",
+      "Mettre en œuvre des tests de pénétration professionnels"
     ],
     outcomes: [
-      "Maîtrise des outils d'automatisation",
-      "Stratégies marketing optimisées par l'IA",
-      "Rapports d'analyse avancée",
-      "Certification reconnue"
+      "Capacité à identifier et corriger les vulnérabilités",
+      "Maîtrise des outils de cybersécurité professionnels",
+      "Compétences en tests de pénétration et analyse de sécurité",
+      "Aptitude à concevoir des stratégies de sécurisation des systèmes"
     ],
     included: [
-      "Accès aux plateformes d'automatisation",
-      "Cas pratiques réels",
-      "Support pédagogique",
-      "Ressources d'apprentissage"
-    ]
-  },
-  {
-    id: 'seo-sea',
-    image: "https://www.redacteur.com/blog/wp-content/uploads/sites/6/2022/11/redaction-seo-blog.jpg",
-    title: "Référencement SEO/SEA",
-    duration: "2 mois",
-    students: "100 max",
-    level: "Intermédiaire",
-    price: "100,000 FCFA",
-    description: "Formation axée sur l'optimisation pour les moteurs de recherche (SEO) et la publicité sur les moteurs de recherche (SEA).",
-    longDescription: "Développez une expertise complète en référencement naturel et payant pour améliorer la visibilité des sites web et générer un trafic qualifié.",
-    modules: [
-      "Fondamentaux du SEO",
-      "Recherche de mots-clés",
-      "Optimisation on-page et off-page",
-      "Google Ads et campagnes SEA",
-      "Analytics et suivi des performances"
-    ],
-    certification: "Attestation GTA + AQP",
-    nextStart: "Tout au long de l'année",
-    featured: false,
-    icon: Search,
-    prerequisites: "Bonne compréhension d'internet et des outils numériques. Aucune expérience préalable en SEO/SEA n'est requise.",
-    objectives: [
-      "Maîtriser les techniques de référencement naturel",
-      "Créer et gérer des campagnes publicitaires efficaces",
-      "Analyser et optimiser les performances",
-      "Développer une stratégie de contenu optimisée"
-    ],
-    outcomes: [
-      "Certification Google Analytics et Google Ads",
-      "Audit complet de site web",
-      "Stratégie de mots-clés",
-      "Plan d'optimisation SEO/SEA"
-    ],
-    included: [
-      "Outils professionnels de suivi SEO",
-      "Budget publicitaire pour les exercices",
-      "Support de cours complet",
-      "Accès à la communauté d'experts"
-    ]
-  },
-  {
-    id: 'community-management',
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&auto=format&fit=crop",
-    title: "Community Management",
-    duration: "3 mois",
-    students: "100 max",
-    level: "Débutant à Intermédiaire",
-    price: "150,000 FCFA",
-    description: "Formation complète pour gérer efficacement les communautés en ligne et développer une présence digitale forte.",
-    longDescription: "Apprenez à construire, animer et fidéliser une communauté en ligne, à créer une stratégie de contenu engageante et à mesurer l'impact de vos actions sur les réseaux sociaux.",
-    modules: [
-      "Stratégie de contenu",
-      "Gestion des réseaux sociaux",
-      "Création de contenu engageant",
-      "Analyse des performances",
-      "Gestion de crise"
-    ],
-    certification: "Attestation GTA + AQP",
-    nextStart: "Tout au long de l'année",
-    featured: false,
-    icon: Users,
-    prerequisites: "Bonne maîtrise des réseaux sociaux. Aucun prérequis technique n'est nécessaire.",
-    objectives: [
-      "Développer une stratégie de communauté efficace",
-      "Créer du contenu engageant pour différents réseaux sociaux",
-      "Animer et modérer une communauté en ligne",
-      "Analyser les performances et ajuster sa stratégie",
-      "Gérer les situations de crise sur les réseaux sociaux"
-    ],
-    outcomes: [
-      "Stratégie de contenu complète",
-      "Calendrier éditorial",
-      "Plan de gestion de communauté",
-      "Rapport d'analyse des performances"
-    ],
-    included: [
-      "Modèles de stratégie de contenu",
-      "Outils d'analyse gratuits",
-      "Support de cours complet",
-      "Accès au groupe privé d'échange"
-    ]
-  },
-  {
-    id: 'infographie',
-    title: "Infographie",
-    duration: "3 mois",
-    students: "100 max",
-    level: "Débutant à Intermédiaire",
-    price: "150,000 FCFA",
-    description: "Formation en conception graphique pour créer des visuels percutants avec des outils modernes.",
-    longDescription: "Cette formation complète vous permettra de maîtriser les outils essentiels de l'infographie moderne et de créer des designs professionnels.",
-    modules: [
-      "Introduction à l'infographie",
-      "Adobe Photoshop",
-      "Adobe Illustrator",
-      "Canva et autres outils",
-      "Projets de design graphique"
-    ],
-    certification: "Attestation GTA + AQP",
-    nextStart: "Tout au long de l'année",
-    featured: false,
-    icon: Image,
-    image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&auto=format&fit=crop",
-    prerequisites: "Aucun prérequis technique n'est nécessaire. Une sensibilité pour le design et la créativité est un plus.",
-    objectives: [
-      "Maîtriser les outils de base de l'infographie",
-      "Créer des visuels professionnels",
-      "Comprendre les principes du design graphique",
-      "Réaliser des projets concrets"
-    ],
-    outcomes: [
-      "Capacité à créer des logos, affiches et supports de communication",
-      "Maîtrise des logiciels d'infographie",
-      "Création d'un portfolio de travaux"
-    ],
-    included: [
-      "Accès aux logiciels pendant la formation",
-      "Support de cours complet",
-      "Accompagnement personnalisé",
-      "Attestation de formation"
-    ]
-  },
-  {
-    id: 'email-marketing',
-    image: "https://images.unsplash.com/photo-1603796846097-bbb99c9c37b8?w=800&auto=format&fit=crop",
-    title: "Email Marketing",
-    duration: "1 mois",
-    students: "100 max",
-    level: "Débutant",
-    price: "50,000 FCFA",
-    description: "Formation sur la création et la gestion de campagnes d'emailing efficaces.",
-    longDescription: "Maîtrisez l'art de l'email marketing pour fidéliser vos clients et augmenter vos ventes grâce à des campagnes ciblées et performantes.",
-    modules: [
-      "Principes de l'email marketing",
-      "Création de newsletters",
-      "Segmentation et ciblage",
-      "Analyse des performances",
-      "Outils d'emailing (Mailchimp, Sendinblue)"
-    ],
-    certification: "Attestation GTA + AQP",
-    nextStart: "Tout au long de l'année",
-    featured: false,
-    icon: Mail,
-    prerequisites: "Aucun prérequis technique n'est nécessaire. Une connaissance de base du marketing est un plus.",
-    objectives: [
-      "Comprendre les fondamentaux de l'email marketing",
-      "Créer des campagnes d'emailing efficaces",
-      "Segmenter une base de contacts",
-      "Analyser les performances des campagnes"
-    ],
-    outcomes: [
-      "Création de campagnes d'emailing performantes",
-      "Maîtrise des outils d'emailing",
-      "Optimisation du taux d'ouverture et de clics"
-    ],
-    included: [
-      "Accès aux outils d'emailing pendant la formation",
-      "Support de cours complet",
-      "Accompagnement personnalisé",
-      "Attestation de formation"
+      "Accès à des environnements de test sécurisés (labs virtuels)",
+      "Support de cours complet avec guides pratiques",
+      "Accompagnement par des experts en cybersécurité",
+      "Ateliers sur des scénarios d'attaques réels",
+      "Projets pratiques pour le portfolio",
+      "Accès à une communauté d'experts en cybersécurité"
     ]
   },
   {
     id: 'aws',
+    image: "https://media.licdn.com/dms/image/v2/D5612AQERySmtAVp7kQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1680275682788?e=2147483647&v=beta&t=QoGbmGlcLAjzwteoirSkX9g59wEPZOi-HCzEnHjpN18",
     title: "Parcours AWS",
     duration: "6 mois",
     students: "100 max",
@@ -697,6 +543,210 @@ export const programs: Program[] = [
       "Ateliers pratiques sur des cas d'entreprise réels",
       "Projets concrets pour le portfolio",
       "Accès à une communauté d'apprenants et de professionnels"
+    ]
+  },
+   {
+    id: 'ia-marketing',
+    image: "https://images.unsplash.com/photo-1617791160536-598cf32026fb?w=800&auto=format&fit=crop",
+    title: "IA & Automatisation Marketing",
+    duration: "2 mois",
+    students: "100 max",
+    level: "Intermédiaire",
+    price: "100,000 FCFA",
+    description: "Formation spécialisée en intelligence artificielle appliquée à l'automatisation des stratégies marketing.",
+    longDescription: "Maîtrisez les outils d'IA et d'automatisation pour optimiser vos campagnes marketing et personnaliser l'expérience client à grande échelle.",
+    modules: [
+      "Introduction à l'IA en marketing",
+      "Outils d'automatisation (HubSpot, n8n)",
+      "Analyse prédictive",
+      "Personnalisation des campagnes",
+      "Projets pratiques"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Mail,
+    prerequisites: "Bonne connaissance des bases du marketing digital. Une expérience préalable avec des outils marketing est un plus.",
+    objectives: [
+      "Comprendre les applications de l'IA dans le marketing",
+      "Automatiser les processus marketing récurrents",
+      "Utiliser l'analyse prédictive pour anticiper les tendances",
+      "Personnaliser les expériences clients à grande échelle"
+    ],
+    outcomes: [
+      "Maîtrise des outils d'automatisation",
+      "Stratégies marketing optimisées par l'IA",
+      "Rapports d'analyse avancée",
+      "Certification reconnue"
+    ],
+    included: [
+      "Accès aux plateformes d'automatisation",
+      "Cas pratiques réels",
+      "Support pédagogique",
+      "Ressources d'apprentissage"
+    ]
+  },
+  {
+    id: 'seo-sea',
+    image: "https://www.redacteur.com/blog/wp-content/uploads/sites/6/2022/11/redaction-seo-blog.jpg",
+    title: "Référencement SEO/SEA",
+    duration: "2 mois",
+    students: "100 max",
+    level: "Intermédiaire",
+    price: "100,000 FCFA",
+    description: "Formation axée sur l'optimisation pour les moteurs de recherche (SEO) et la publicité sur les moteurs de recherche (SEA).",
+    longDescription: "Développez une expertise complète en référencement naturel et payant pour améliorer la visibilité des sites web et générer un trafic qualifié.",
+    modules: [
+      "Fondamentaux du SEO",
+      "Recherche de mots-clés",
+      "Optimisation on-page et off-page",
+      "Google Ads et campagnes SEA",
+      "Analytics et suivi des performances"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Search,
+    prerequisites: "Bonne compréhension d'internet et des outils numériques. Aucune expérience préalable en SEO/SEA n'est requise.",
+    objectives: [
+      "Maîtriser les techniques de référencement naturel",
+      "Créer et gérer des campagnes publicitaires efficaces",
+      "Analyser et optimiser les performances",
+      "Développer une stratégie de contenu optimisée"
+    ],
+    outcomes: [
+      "Certification Google Analytics et Google Ads",
+      "Audit complet de site web",
+      "Stratégie de mots-clés",
+      "Plan d'optimisation SEO/SEA"
+    ],
+    included: [
+      "Outils professionnels de suivi SEO",
+      "Budget publicitaire pour les exercices",
+      "Support de cours complet",
+      "Accès à la communauté d'experts"
+    ]
+  },
+  {
+    id: 'community-management',
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&auto=format&fit=crop",
+    title: "Community Management",
+    duration: "3 mois",
+    students: "100 max",
+    level: "Débutant à Intermédiaire",
+    price: "150,000 FCFA",
+    description: "Formation complète pour gérer efficacement les communautés en ligne et développer une présence digitale forte.",
+    longDescription: "Apprenez à construire, animer et fidéliser une communauté en ligne, à créer une stratégie de contenu engageante et à mesurer l'impact de vos actions sur les réseaux sociaux.",
+    modules: [
+      "Stratégie de contenu",
+      "Gestion des réseaux sociaux",
+      "Création de contenu engageant",
+      "Analyse des performances",
+      "Gestion de crise"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Users,
+    prerequisites: "Bonne maîtrise des réseaux sociaux. Aucun prérequis technique n'est nécessaire.",
+    objectives: [
+      "Développer une stratégie de communauté efficace",
+      "Créer du contenu engageant pour différents réseaux sociaux",
+      "Animer et modérer une communauté en ligne",
+      "Analyser les performances et ajuster sa stratégie",
+      "Gérer les situations de crise sur les réseaux sociaux"
+    ],
+    outcomes: [
+      "Stratégie de contenu complète",
+      "Calendrier éditorial",
+      "Plan de gestion de communauté",
+      "Rapport d'analyse des performances"
+    ],
+    included: [
+      "Modèles de stratégie de contenu",
+      "Outils d'analyse gratuits",
+      "Support de cours complet",
+      "Accès au groupe privé d'échange"
+    ]
+  },
+  {
+    id: 'infographie',
+    title: "Infographie",
+    duration: "3 mois",
+    students: "100 max",
+    level: "Débutant à Intermédiaire",
+    price: "150,000 FCFA",
+    description: "Formation en conception graphique pour créer des visuels percutants avec des outils modernes.",
+    longDescription: "Cette formation complète vous permettra de maîtriser les outils essentiels de l'infographie moderne et de créer des designs professionnels.",
+    modules: [
+      "Introduction à l'infographie",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Canva et autres outils",
+      "Projets de design graphique"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Image,
+    image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&auto=format&fit=crop",
+    prerequisites: "Aucun prérequis technique n'est nécessaire. Une sensibilité pour le design et la créativité est un plus.",
+    objectives: [
+      "Maîtriser les outils de base de l'infographie",
+      "Créer des visuels professionnels",
+      "Comprendre les principes du design graphique",
+      "Réaliser des projets concrets"
+    ],
+    outcomes: [
+      "Capacité à créer des logos, affiches et supports de communication",
+      "Maîtrise des logiciels d'infographie",
+      "Création d'un portfolio de travaux"
+    ],
+    included: [
+      "Accès aux logiciels pendant la formation",
+      "Support de cours complet",
+      "Accompagnement personnalisé",
+      "Attestation de formation"
+    ]
+  },
+  {
+    id: 'email-marketing',
+    image: "https://images.unsplash.com/photo-1603796846097-bbb99c9c37b8?w=800&auto=format&fit=crop",
+    title: "Email Marketing",
+    duration: "1 mois",
+    students: "100 max",
+    level: "Débutant",
+    price: "50,000 FCFA",
+    description: "Formation sur la création et la gestion de campagnes d'emailing efficaces.",
+    longDescription: "Maîtrisez l'art de l'email marketing pour fidéliser vos clients et augmenter vos ventes grâce à des campagnes ciblées et performantes.",
+    modules: [
+      "Principes de l'email marketing",
+      "Création de newsletters",
+      "Segmentation et ciblage",
+      "Analyse des performances",
+      "Outils d'emailing (Mailchimp, Sendinblue)"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Mail,
+    prerequisites: "Aucun prérequis technique n'est nécessaire. Une connaissance de base du marketing est un plus.",
+    objectives: [
+      "Comprendre les fondamentaux de l'email marketing",
+      "Créer des campagnes d'emailing efficaces",
+      "Segmenter une base de contacts",
+      "Analyser les performances des campagnes"
+    ],
+    outcomes: [
+      "Création de campagnes d'emailing performantes",
+      "Maîtrise des outils d'emailing",
+      "Optimisation du taux d'ouverture et de clics"
+    ],
+    included: [
+      "Accès aux outils d'emailing pendant la formation",
+      "Support de cours complet",
+      "Accompagnement personnalisé",
+      "Attestation de formation"
     ]
   },
   {

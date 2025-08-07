@@ -10,11 +10,12 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { ArrowLeft, User, Mail, Phone, MapPin, GraduationCap, Briefcase, CreditCard, Clock, Users, Award } from 'lucide-react';
+import { User, Mail, Phone, MapPin, GraduationCap, Briefcase, CreditCard, Clock, Users, Award } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
 import { phoneNumber, PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID_INSCRIPTION_CERTIFICATIONS } from '@/store/const/constante';
 import { programs } from '@/data/programs';
+import TrainingHero from '@/components/training/TrainingHero';
 
 const CertifiedRegistrationPage = () => {
   const { id } = useParams();
@@ -48,25 +49,46 @@ const CertifiedRegistrationPage = () => {
     agreeMarketing: false
   });
 
-  const [formation, setFormation] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [program, setProgram] = useState<any>(null);
 
   useEffect(() => {
     if (id) {
-      const selectedFormation = programs.find(program => program.id === id);
-      if (selectedFormation) {
-        setFormation({
-          id: selectedFormation.id,
-          title: selectedFormation.title,
-          duration: selectedFormation.duration,
-          price: selectedFormation.price,
-          nextStart: selectedFormation.nextStart,
-          certification: selectedFormation.certification
-        });
+      const selectedProgram = programs.find(p => p.id === id);
+      if (selectedProgram) {
+        setProgram(selectedProgram);
       }
       setLoading(false);
     }
   }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto px-4 py-20 text-center">
+          <p>Chargement de la formation...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!program) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto px-4 py-20">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">Formation non trouvée</h1>
+            <Link to="/training/certified">
+              <Button variant="outline">Retour aux formations</Button>
+            </Link>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -159,64 +181,32 @@ const CertifiedRegistrationPage = () => {
     }));
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <div className="container mx-auto px-4 py-20 text-center">
-          <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 rounded w-1/3 mx-auto mb-4"></div>
-            <div className="h-4 bg-gray-200 rounded w-1/4 mx-auto"></div>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
-  if (!formation) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <div className="container mx-auto px-4 py-20">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Formation non trouvée</h1>
-            <Link to="/training/certified">
-              <Button variant="outline">Retour aux formations</Button>
-            </Link>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
+      
+      <TrainingHero
+        title={program.title}
+        description={program.description}
+        duration={program.duration}
+        level={program.level}
+        startDate="6 Octobre 2024"
+        price={`${program.price} FCFA`}
+        programId={program.id}
+        isRegistrationPage={true}
+      />
+      
       <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-8">
-          <Link to="/training" className="hover:text-gta-red">Formations</Link>
-          <span>/</span>
-          <Link to="/training/certified" className="hover:text-gta-red">Certifiantes</Link>
-          <span>/</span>
-          <Link to={`/training/certified/${id}`} className="hover:text-gta-red">{formation.title}</Link>
-          <span>/</span>
-          <span className="text-foreground">Inscription</span>
-        </div>
 
         {/* Header */}
         <div className="mb-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
-              Inscription à la formation
-            </h1>
-            <h2 className="text-xl text-gta-red font-semibold mb-2">{formation.title}</h2>
-            <p className="text-muted-foreground">
-              Remplissez ce formulaire pour vous inscrire à cette formation certifiante
-            </p>
+              <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+                Inscription à la formation
+              </h1>
+              <p className="text-muted-foreground">
+                Remplissez ce formulaire pour vous inscrire à cette formation certifiante
+              </p>
           </div>
         </div>
 
@@ -501,19 +491,19 @@ const CertifiedRegistrationPage = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2">{formation.title}</h3>
+                  <h3 className="font-semibold text-foreground mb-2">{program.title}</h3>
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <div className="flex items-center space-x-2">
                       <Clock className="w-4 h-4 text-gta-red" />
-                      <span>{formation.duration}</span>
+                      <span>{program.duration}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <CreditCard className="w-4 h-4 text-gta-red" />
-                      <span className="font-semibold text-gta-red">{formation.price}</span>
+                      <span className="font-semibold text-gta-red">{program.price} FCFA</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Users className="w-4 h-4 text-gta-red" />
-                      <span>Prochaine session : {formation.nextStart}</span>
+                      <span>Prochaine session : 6 Octobre 2024</span>
                     </div>
                   </div>
                 </div>

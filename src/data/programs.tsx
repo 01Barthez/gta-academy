@@ -1,4 +1,4 @@
-import { Code, Cpu, Shield, Smartphone, Cloud, Bot, BarChart2, Mail, Users, Image, Search, Lock, Terminal, Film, FileText } from 'lucide-react';
+import { Code, Cpu, Shield, Smartphone, Cloud, Bot, BarChart2, Mail, Users, Image, Search, Lock, Terminal, Film, FileText, Globe, Package } from 'lucide-react';
 
 interface Program {
   id: string;
@@ -76,7 +76,7 @@ export const programs: Program[] = [
     duration: "8 mois",
     students: "50 max",
     level: "Intermédiaire à Avancé",
-    price: "450,000 FCFA",
+    price: "500,000 FCFA",
     description: "Maîtrisez l'analyse de données, le Machine Learning et le Deep Learning avec Python et les bibliothèques modernes.",
     longDescription: "Cette formation complète vous permettra de maîtriser les techniques avancées d'analyse de données et d'intelligence artificielle, de la collecte des données au déploiement de modèles en production.",
     modules: [
@@ -543,6 +543,144 @@ export const programs: Program[] = [
       "Ateliers pratiques sur des cas d'entreprise réels",
       "Projets concrets pour le portfolio",
       "Accès à une communauté d'apprenants et de professionnels"
+    ]
+  },
+{
+    id: 'wordpress-web-dev',
+    title: "Création de Sites Web Professionnels avec WordPress",
+    duration: "3 mois",
+    students: "100 max",
+    level: "Débutant à Intermédiaire",
+    price: "150,000 FCFA",
+    description: "Apprenez à concevoir, personnaliser et déployer des sites web professionnels avec WordPress, en intégrant design, ergonomie et référencement.",
+    longDescription: "Cette formation pratique vous guide à travers toutes les étapes de la création de sites web professionnels avec WordPress, le CMS le plus populaire au monde. De l’installation à la mise en ligne, vous maîtriserez la personnalisation des thèmes, la gestion de contenu, l’optimisation SEO et l’intégration de fonctionnalités avancées comme l’e-commerce avec WooCommerce, tout en appliquant les meilleures pratiques de sécurité et de performance.",
+    modules: [
+      "Introduction au web et à WordPress : fonctionnement, installation, configuration",
+      "Choix et personnalisation du thème : thèmes gratuits/premium, Customizer, Elementor, Divi",
+      "Création et gestion de contenu : pages, articles, catégories, étiquettes, médias",
+      "Extensions et fonctionnalités avancées : plugins SEO, sécurité, e-commerce, formulaires",
+      "E-commerce avec WooCommerce : configuration, gestion des produits, commandes, paiements",
+      "Sécurité et performance : protection contre le piratage, optimisation de la vitesse",
+      "Référencement et optimisation marketing : Yoast, RankMath, Google Analytics, Search Console",
+      "Projets pratiques : création et mise en ligne d’un site vitrine complet"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Globe,
+    prerequisites: "Aucun prérequis technique n’est nécessaire. Une familiarité avec l’informatique de base est un plus.",
+    objectives: [
+      "Maîtriser l’installation et la configuration de WordPress",
+      "Personnaliser des thèmes pour créer des sites uniques",
+      "Optimiser le contenu pour le référencement naturel",
+      "Intégrer des fonctionnalités e-commerce et marketing",
+      "Assurer la sécurité et la performance des sites web"
+    ],
+    outcomes: [
+      "Capacité à créer des sites web professionnels avec WordPress",
+      "Maîtrise des outils de personnalisation et d’optimisation SEO",
+      "Compétences en gestion de contenu et e-commerce",
+      "Aptitude à sécuriser et maintenir un site web"
+    ],
+    included: [
+      "Accès à des thèmes et plugins premium pendant la formation",
+      "Support de cours complet avec tutoriels pratiques",
+      "Accompagnement par des experts WordPress",
+      "Ateliers pratiques pour créer un site vitrine",
+      "Mise en ligne réelle du site créé",
+      "Accès à une communauté d’apprenants et de professionnels"
+    ]
+  },
+  {
+    id: 'odoo-development',
+    title: "Développement d’Applications avec Odoo",
+    duration: "4 mois",
+    students: "100 max",
+    level: "Intermédiaire",
+    price: "200,000 FCFA",
+    description: "Formez-vous à personnaliser, développer et déployer des modules Odoo adaptés aux besoins des entreprises avec la plateforme ERP.",
+    longDescription: "Cette formation vous permet de devenir un développeur Odoo compétent, capable de concevoir et de déployer des modules personnalisés pour répondre aux besoins spécifiques des entreprises. Vous explorerez l’architecture d’Odoo, apprendrez à utiliser son ORM, à personnaliser l’interface utilisateur, à intégrer des API externes et à automatiser des processus métier, tout en maîtrisant les bonnes pratiques de développement et de maintenance.",
+    modules: [
+      "Introduction à Odoo : ERP, modules principaux, installation, configuration",
+      "Bases du développement : structure des modules, ORM, modèles, champs",
+      "Personnalisation de l’interface : vues (form, list, kanban), QWeb, automatisations",
+      "Développement avancé : sécurité, gestion des accès, intégration d’API",
+      "Déploiement et maintenance : packaging, mise à jour, bonnes pratiques",
+      "Développement mobile et responsive : adaptation pour une utilisation mobile",
+      "Automatisation des processus métier : workflows, actions programmées",
+      "Intégration avec d’autres systèmes : connecteurs ERP, CRM, e-commerce, API REST/XML-RPC"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Package,
+    prerequisites: "Connaissances de base en programmation (Python recommandé) et en bases de données. Une familiarité avec les ERP est un plus.",
+    objectives: [
+      "Comprendre l’architecture et les fonctionnalités d’Odoo",
+      "Maîtriser le développement de modules personnalisés",
+      "Personnaliser les interfaces utilisateur et les processus métier",
+      "Intégrer Odoo avec des systèmes externes",
+      "Déployer et maintenir des solutions Odoo"
+    ],
+    outcomes: [
+      "Capacité à développer des modules Odoo sur mesure",
+      "Maîtrise de l’automatisation des processus métier",
+      "Compétences en intégration et déploiement d’ERP",
+      "Aptitude à optimiser Odoo pour des besoins spécifiques"
+    ],
+    included: [
+      "Environnement de développement Odoo configuré",
+      "Support de cours complet avec exemples de code",
+      "Accompagnement par des experts Odoo",
+      "Ateliers pratiques sur des projets réels",
+      "Projets concrets pour le portfolio",
+      "Accès à une communauté d’apprenants et de développeurs"
+    ]
+  },
+  {
+    id: 'mobile-app-development',
+    title: "Développement d’Applications Mobiles",
+    duration: "6 mois",
+    students: "100 max",
+    level: "Débutant à Intermédiaire",
+    price: "300,000 FCFA",
+    description: "Concevez, développez et déployez des applications mobiles performantes pour Android et iOS avec des frameworks modernes.",
+    longDescription: "Cette formation complète vous apprend à créer des applications mobiles performantes pour Android et iOS, en utilisant à la fois des approches natives (Kotlin, Swift) et cross-platform (React Native, Flutter). Vous maîtriserez la conception d’interfaces utilisateur, l’intégration de services backend, les tests, le débogage et le déploiement sur les stores, tout en appliquant des bonnes pratiques en UX/UI et sécurité.",
+    modules: [
+      "Introduction au développement mobile : écosystèmes Android/iOS, outils (Android Studio, Xcode, Expo)",
+      "Développement natif Android : Kotlin/Java, interface, activités, stockage local",
+      "Développement natif iOS : Swift, UIKit, navigation, services Apple",
+      "Développement cross-platform : React Native, Flutter, interfaces, fonctionnalités natives",
+      "Tests, débogage et déploiement : tests unitaires, optimisation, publication sur stores",
+      "UX/UI Design pour mobile : design responsive, accessibilité, prototypage (Figma, Adobe XD)",
+      "Sécurité et performances : authentification, optimisation mémoire/batterie",
+      "Intégration backend : APIs REST/GraphQL, stockage cloud, notifications push"
+    ],
+    certification: "Attestation GTA + AQP",
+    nextStart: "Tout au long de l'année",
+    featured: false,
+    icon: Smartphone,
+    prerequisites: "Connaissances de base en programmation (JavaScript, Python ou autre). Une familiarité avec le développement web est un plus.",
+    objectives: [
+      "Maîtriser le développement natif pour Android et iOS",
+      "Développer des applications cross-platform avec React Native et Flutter",
+      "Concevoir des interfaces utilisateur optimisées pour mobile",
+      "Intégrer des services backend et APIs",
+      "Publier des applications sur Google Play Store et Apple App Store"
+    ],
+    outcomes: [
+      "Capacité à créer des applications mobiles natives et cross-platform",
+      "Maîtrise des frameworks modernes de développement mobile",
+      "Compétences en UX/UI design et optimisation des performances",
+      "Aptitude à déployer des applications sur les stores"
+    ],
+    included: [
+      "Accès à des environnements de développement (Android Studio, Xcode, Expo)",
+      "Support de cours complet avec exemples pratiques",
+      "Accompagnement par des experts en développement mobile",
+      "Ateliers pratiques pour créer des applications complètes",
+      "Projets concrets publiables sur les stores",
+      "Accès à une communauté d’apprenants et de développeurs"
     ]
   },
    {
